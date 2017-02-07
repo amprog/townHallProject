@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Upload TownHall Database via CSV File</title>
+  </head>
+  <body>
+    <h1>Upload TownHall Database via CSV File</h1>
+
+    <form id="uploader">
+      <input type='file' id="file" />
+      <input type="submit" />
+    </form>
+
+    <script src="/vendor/scripts/jquery-2.1.4.js"></script>
+    <script src="/vendor/scripts/papaparse.min.js"></script>
+    <script>
+      $('#uploader').on('submit', function(e) {
+        e.preventDefault()
+
+        Papa.parse(document.getElementById('file').files[0], {
+          complete: function(data) {
+            console.log(data)
+          }
+        })
+      })
+    </script>
+  </body>
+</html>
