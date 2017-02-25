@@ -93,15 +93,9 @@
   // Converts zip to lat lng google obj
   TownHall.lookupZip = function (zip) {
     return firebasedb.ref('/zips/' + zip).once('value').then(function(snapshot) {
-      var representativePromise = $.ajax({
-        url: 'https://congress.api.sunlightfoundation.com/legislators/locate?zip=' + zip,
-        dataType: 'jsonp'
-      });
       var zipQueryLoc = new google.maps.LatLng(snapshot.val().LAT, snapshot.val().LNG);
       TownHall.zipQuery = zipQueryLoc;
-      TownHall.returnNearest(zipQueryLoc).then(function(sorted) {
-        eventHandler.render(sorted, zipQueryLoc, representativePromise);
-      });
+      TownHall.returnNearest(zipQueryLoc);
     }).catch(function(error){
       var $results = $('#textresults');
       console.log(error);
@@ -115,7 +109,7 @@
   // given a zip, returns sorted array of events
   TownHall.returnNearest = function (zipQueryLoc) {
     var locations = [];
-    return firebase.database().ref('/townHalls').once('value').then(function(snapshot) {
+    firebase.database().ref('/townHalls').once('value').then(function(snapshot) {
       snapshot.forEach(function(ele){
         if (ele.val().StateAb !== 'DC') {
           locations.push(new TownHall(ele.val()));
@@ -126,7 +120,7 @@
         b.dist = google.maps.geometry.spherical.computeDistanceBetween(zipQueryLoc, new google.maps.LatLng(b.lat,b.lng));
         return a.dist <= b.dist ? -1 : 1;
       });
-      return sorted;
+      eventHandler.render(sorted, zipQueryLoc);
     });
   };
 
