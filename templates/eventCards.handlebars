@@ -12,7 +12,6 @@
             <var class="atc_event">
               <var class="atc_date_start">{{yearMonthDay}} {{timeStart24}}</var>
                 <var class="atc_date_end">{{yearMonthDay}} {{timeEnd24}}</var>
-                <var class="atc_timezone">{{zoneString}}</var>
                 <var class="atc_title">{{meetingType}}: {{Member}}</var>
                 <var class="atc_description">{{{Notes}}}</var>
                 <var class="atc_location">{{address}}</var>
@@ -29,7 +28,7 @@
       </div>
     </div>
     <div class="panel-body">
-      <span class="text-success text-center"><h4><span class>{{Date}}</span><span class="profile-summary-value"> at {{Time}}, {{timeZone}}</span></h4></span>
+      <span class="text-success text-center"><h4><span class>{{Date}}</span><span class="profile-summary-value"> at {{Time}}</span></h4></span>
       <ul class="list-group list-group-flush">
         <li class="list-group-item">{{{Notes}}}
         </li>
