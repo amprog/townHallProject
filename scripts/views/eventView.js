@@ -125,22 +125,22 @@
 
     TownHall.addFilter(filter, value);
     var button = '<li><button class="btn btn-secondary btn-xs" ' +
-                 'data-filter="' + filter + '" data-value="' + value + '" >' + value + ' &#128937;</button></li>'
+                 'data-filter="' + filter + '" data-value="' + value + '" >' + value + ' <i class="fa fa-times" aria-hidden="true"></i></button></li>';
     $('#filter-info').append(button);
-  }
+  };
 
   eventHandler.removeFilter = function() {
     var $button = $(this);
     TownHall.removeFilter($button.attr('data-filter'), $button.attr('data-value'));
     eventHandler.renderTableWithArray(eventHandler.getFilterState());
     $button.parent().remove();
-  }
+  };
 
   eventHandler.resetFilters = function() {
     TownHall.resetFilters();
     $('#filter-info li button').parent().remove();
     eventHandler.addFilter('meetingType', 'Town Hall');
-  }
+  };
   // filters the table on click
   eventHandler.filterTable = function (e) {
     e.preventDefault();
@@ -243,7 +243,7 @@
         eventHandler.addFilter(this.$element.attr('data-filter'), selection);
         eventHandler.renderTableWithArray(eventHandler.getFilterState());
       }
-    }
+    };
 
     $("#stateTypeahead").typeahead($.extend({source: TownHall.allStates}, typeaheadConfig));
     $("#memberTypeahead").typeahead($.extend({source: TownHall.allMoCs}, typeaheadConfig));
