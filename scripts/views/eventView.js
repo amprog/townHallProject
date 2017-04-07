@@ -130,21 +130,21 @@
     var button = '<li><button class="btn btn-secondary btn-xs" ' +
                  'data-filter="' + filter + '" data-value="' + value + '" >' +
                     value + '<i class="fa fa-times" aria-hidden="true"></i>' +
-                  '</button></li>'
+                  '</button></li>';
     $('#filter-info').append(button);
-  }
+  };
 
   eventHandler.removeFilter = function() {
     var $button = $(this);
     TownHall.removeFilter($button.attr('data-filter'), $button.attr('data-value'));
     eventHandler.renderTableWithArray(eventHandler.getFilterState());
     $button.parent().remove();
-  }
+  };
 
   eventHandler.resetFilters = function() {
     TownHall.resetFilters();
     $('#filter-info li button').parent().remove();
-  }
+  };
   // filters the table on click
   eventHandler.filterTable = function (e) {
     e.preventDefault();
@@ -216,7 +216,6 @@
       eventHandler.renderTableWithArray(events);
       $text.html('There are no events within 75 miles of your zip, the closest one is ' + townHall.dist + ' miles away. <br>' + info);
       $results.append($text);
-      TownHall.saveZipLookup($zip);
       eventHandler.renderPanels(townHall, $parent);
     }
     else{
@@ -247,7 +246,7 @@
         eventHandler.addFilter(this.$element.attr('data-filter'), selection);
         eventHandler.renderTableWithArray(eventHandler.getFilterState());
       }
-    }
+    };
 
     $("#stateTypeahead").typeahead($.extend({source: TownHall.allStates}, typeaheadConfig));
     $("#memberTypeahead").typeahead($.extend({source: TownHall.allMoCs}, typeaheadConfig));
