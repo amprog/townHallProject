@@ -271,7 +271,7 @@
     $('.filter').on('click', 'a', eventHandler.filterTable);
     $('#filter-info').on('click', 'button.btn', eventHandler.removeFilter);
     eventHandler.resetFilters();
-    eventHandler.addFilter('meetingType', 'Town Hall');
+    // eventHandler.addFilter('meetingType', 'Town Hall');
     eventHandler.addFilter('meetingType', 'Resistance Event');
 
     // url hash for direct links to subtabs
