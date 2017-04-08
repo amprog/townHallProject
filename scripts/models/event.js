@@ -119,26 +119,45 @@
   // given a zip, returns sorted array of events
   TownHall.returnNearest = function (zipQueryLoc) {
     var locations = [];
-    firebase.database().ref('/townHalls').once('value').then(function(snapshot) {
+    var x = firebase.database().ref('/townHalls').once('value').then(function(snapshot) {
         snapshot.forEach(function(ele){
           if (ele.val().StateAb !== 'DC') {
             locations.push(new TownHall(ele.val()));
           }
         });
     });
-    firebase.database().ref('/capEvents').once('value').then(function(snapshot) {
+    var y = firebase.database().ref('/capEvents').once('value').then(function(snapshot) {
         snapshot.forEach(function(ele){
           if (ele.val().StateAb !== 'DC') {
             locations.push(new TownHall(ele.val()));
           }
         });
     });
-    var sorted = locations.sort(function (a , b) {
+    return Promise.all([x, y]).then(function (results) {
+        var sorted = locations.sort(function (a , b) {
+	        a.dist = google.maps.geometry.spherical.computeDistanceBetween(zipQueryLoc, new google.maps.LatLng(a.lat,a.lng));
+	        b.dist = google.maps.geometry.spherical.computeDistanceBetween(zipQueryLoc, new google.maps.LatLng(b.lat,b.lng));
+	        return a.dist <= b.dist ? -1 : 1;
+	    });
+	    return sorted;
+    });
+  };
+  // given a zip, returns sorted array of events
+  TownHall.returnNearest = function (zipQueryLoc) {
+    var locations = [];
+    return firebase.database().ref('/townHalls').once('value').then(function(snapshot) {
+      snapshot.forEach(function(ele){
+        if (ele.val().StateAb !== 'DC') {
+          locations.push(new TownHall(ele.val()));
+        }
+      });
+      var sorted = locations.sort(function (a , b) {
         a.dist = google.maps.geometry.spherical.computeDistanceBetween(zipQueryLoc, new google.maps.LatLng(a.lat,a.lng));
         b.dist = google.maps.geometry.spherical.computeDistanceBetween(zipQueryLoc, new google.maps.LatLng(b.lat,b.lng));
         return a.dist <= b.dist ? -1 : 1;
+      });
+      return sorted;
     });
-    return sorted;
   };
 
   TownHall.addFilter = function(filter, value) {
