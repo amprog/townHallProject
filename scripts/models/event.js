@@ -106,7 +106,6 @@
       var zipQueryLoc = new google.maps.LatLng(snapshot.val().LAT, snapshot.val().LNG);
       TownHall.zipQuery = zipQueryLoc;
       TownHall.returnNearest(zipQueryLoc).then(function(sorted) {
-        console.log('returned sorted', sorted);
         eventHandler.render(sorted, zipQueryLoc, representativePromise);
       });
     }).catch(function(error){
@@ -149,7 +148,6 @@
           capEvent.removeUnaffliated();
           locations.push(capEvent);
         });
-        console.log(locations);
         var sorted = locations.sort(function (a , b) {
 	        a.dist = google.maps.geometry.spherical.computeDistanceBetween(zipQueryLoc, new google.maps.LatLng(a.lat,a.lng));
 	        b.dist = google.maps.geometry.spherical.computeDistanceBetween(zipQueryLoc, new google.maps.LatLng(b.lat,b.lng));
