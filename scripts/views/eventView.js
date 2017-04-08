@@ -48,7 +48,11 @@
   eventHandler.renderPanels = function(event, $parent) {
     var compiledTemplate = Handlebars.getTemplate('eventCards');
     var $panel = $(compiledTemplate(event));
-    $panel.children('.panel').addClass(event.Party.slice(0,3));
+    var panelClass = event.Party.slice(0,3);
+    if(!panelClass || panelClass === null || !$.trim(panelClass)){
+      panelClass = 'None';
+    }
+    $panel.children('.panel').addClass(panelClass);
     $panel.appendTo($parent);
   };
 
