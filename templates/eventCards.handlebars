@@ -24,13 +24,20 @@
       </div>
       <div class="row">
         <div class = col-xs-12>
+          {{#if Member}}
         <h3>{{Member}} <small>({{Party}}, {{District}})</small></h3>
+          {{/if}}
+          {{#unless Member}}
+          <h3>{{eventName}} </h3>
+          {{/unless}}
       </div>
       </div>
     </div>
     <div class="panel-body">
+      {{#if Member}}
       {{#if eventName}}
       <h3 class="text-success text-center">{{eventName}}</h3>
+      {{/if}}
       {{/if}}
       <span class="text-success text-center"><h4>
         <span class>{{Date}}</span><span class="profile-summary-value"> at {{Time}}{{#if timeZone}}, {{timeZone}}{{/if}}</span></h4></span>
@@ -56,8 +63,13 @@
         <li class="list-group-item">
           <address>
             <strong>{{Location}}</strong></br>
+            {{#if address}}
+            {{address}}<br>
+            {{/if}}
+            {{#unless address}}
             {{streetAddress}}<br>
             {{#if City}}{{City}}, {{/if}}{{StateAb}} {{zip}}<br>
+            {{/unless}}
             <a href={{addressLink}} target="_blank">Directions</a></br>
             <span class="text-center"><small>{{dist}} miles away from your search</small></span>
             <address>
