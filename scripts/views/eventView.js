@@ -167,7 +167,7 @@
     var cur = parseInt($currentState.attr('data-current'));
     $currentState.attr('data-total', total);
     $table = $('#all-events-table');
-    if (townhall.meetingType === 'Town Hall' || townhall.meetingType === 'Town Hall') {
+    if (townhall.meetingType === 'Town Hall' || townhall.meetingType === 'Resistance Event') {
       cur ++;
       eventHandler.renderTable(townhall, $table);
       $currentState.attr('data-current', cur);
@@ -272,6 +272,7 @@
     $('#filter-info').on('click', 'button.btn', eventHandler.removeFilter);
     eventHandler.resetFilters();
     eventHandler.addFilter('meetingType', 'Town Hall');
+    eventHandler.addFilter('meetingType', 'Resistance Event');
 
     // url hash for direct links to subtabs
     // slightly hacky routing
