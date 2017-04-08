@@ -9,7 +9,7 @@
   TownHall.allMoCs = [];
   TownHall.allStates = [];
   TownHall.currentContext = [];
-  TownHall.filters = {}
+  TownHall.filters = {};
   TownHall.sortOn = 'State';
   TownHall.filteredResults = [];
   TownHall.isCurrentContext = false;
@@ -86,12 +86,14 @@
       return filteredData.filter(function(townhall) {
         // Currently some of the data is inconsistent.  Some parties are listed as "Democrat" and some are listed as "Democratic", etc
         // TODO:  Once data is sanatized use return TownHall.filters[key].indexOf(townhall[key]) !== -1;
-        return TownHall.filters[key].some(function(filter) {
-          return filter.slice(0, 8) === townhall[key].slice(0, 8);
-        })
-      })
+        if (townhall[key]) {
+          return TownHall.filters[key].some(function(filter) {
+            return filter.slice(0, 8) === townhall[key].slice(0, 8);
+          });
+        }
+      });
     }, data).sort(TownHall.sortFunction);
-  }
+  };
 
   // METHODS IN RESPONSE TO lookup
   // Converts zip to lat lng google obj
@@ -104,6 +106,7 @@
       var zipQueryLoc = new google.maps.LatLng(snapshot.val().LAT, snapshot.val().LNG);
       TownHall.zipQuery = zipQueryLoc;
       TownHall.returnNearest(zipQueryLoc).then(function(sorted) {
+        console.log('returned sorted', sorted);
         eventHandler.render(sorted, zipQueryLoc, representativePromise);
       });
     }).catch(function(error){
@@ -116,49 +119,64 @@
     });
   };
 
-  // given a zip, returns sorted array of events
-  TownHall.returnNearest = function (zipQueryLoc) {
-    var locations = [];
-    firebase.database().ref('/townHalls').once('value').then(function(townHallsSS) {
-        townHallsSS.forEach(function(ele){
-          if (ele.val().StateAb !== 'DC') {
-            locations.push(new TownHall(ele.val()));
-          }
-        });
-    }).then(function(){
-      firebase.database().ref('/capEvents').once('value').then(function(capSS) {
-          capSS.forEach(function(ele){
-            if (ele.val().StateAb !== 'DC') {
-              locations.push(new TownHall(ele.val()));
-            }
-          });
-          var sorted = locations.sort(function (a , b) {
-  	        a.dist = google.maps.geometry.spherical.computeDistanceBetween(zipQueryLoc, new google.maps.LatLng(a.lat,a.lng));
-  	        b.dist = google.maps.geometry.spherical.computeDistanceBetween(zipQueryLoc, new google.maps.LatLng(b.lat,b.lng));
-  	        return a.dist <= b.dist ? -1 : 1;
-  	    });
-  	    return sorted;
-      });
+// cleaning out Unaffiliated fields
+  TownHall.prototype.removeUnaffliated = function () {
+    townHall = this;
+    Object.keys(townHall).forEach(function(key){
+      if (townHall[key] === 'Unaffiliated') {
+        townHall[key] = null;
+      }
     });
-  }
+    return townHall;
+  };
 
   // given a zip, returns sorted array of events
   TownHall.returnNearest = function (zipQueryLoc) {
     var locations = [];
-    return firebase.database().ref('/townHalls').once('value').then(function(snapshot) {
-      snapshot.forEach(function(ele){
+    return firebase.database().ref('/townHalls/').once('value')
+    .then(function(townHallsSS) {
+      townHallsSS.forEach(function(ele){
         if (ele.val().StateAb !== 'DC') {
           locations.push(new TownHall(ele.val()));
         }
       });
-      var sorted = locations.sort(function (a , b) {
-        a.dist = google.maps.geometry.spherical.computeDistanceBetween(zipQueryLoc, new google.maps.LatLng(a.lat,a.lng));
-        b.dist = google.maps.geometry.spherical.computeDistanceBetween(zipQueryLoc, new google.maps.LatLng(b.lat,b.lng));
-        return a.dist <= b.dist ? -1 : 1;
+    })
+    .then(function(){
+      return firebase.database().ref('/capEvents/').once('value')
+      .then(function(capSS) {
+        capSS.forEach(function(ele){
+          capEvent = new TownHall(ele.val());
+          capEvent.removeUnaffliated();
+          locations.push(capEvent);
+        });
+        console.log(locations);
+        var sorted = locations.sort(function (a , b) {
+	        a.dist = google.maps.geometry.spherical.computeDistanceBetween(zipQueryLoc, new google.maps.LatLng(a.lat,a.lng));
+	        b.dist = google.maps.geometry.spherical.computeDistanceBetween(zipQueryLoc, new google.maps.LatLng(b.lat,b.lng));
+	        return a.dist <= b.dist ? -1 : 1;
+  	    });
+  	    return sorted;
       });
-      return sorted;
     });
   };
+
+  // // given a zip, returns sorted array of events
+  // TownHall.returnNearest = function (zipQueryLoc) {
+  //   var locations = [];
+  //   return firebase.database().ref('/townHalls').once('value').then(function(snapshot) {
+  //     snapshot.forEach(function(ele){
+  //       if (ele.val().StateAb !== 'DC') {
+  //         locations.push(new TownHall(ele.val()));
+  //       }
+  //     });
+  //     var sorted = locations.sort(function (a , b) {
+  //       a.dist = google.maps.geometry.spherical.computeDistanceBetween(zipQueryLoc, new google.maps.LatLng(a.lat,a.lng));
+  //       b.dist = google.maps.geometry.spherical.computeDistanceBetween(zipQueryLoc, new google.maps.LatLng(b.lat,b.lng));
+  //       return a.dist <= b.dist ? -1 : 1;
+  //     });
+  //     return sorted;
+  //   });
+  // };
 
   TownHall.addFilter = function(filter, value) {
     if (!TownHall.filters.hasOwnProperty(filter)) {
@@ -166,7 +184,7 @@
     } else {
       TownHall.filters[filter].push(value);
     }
-  }
+  };
 
   TownHall.removeFilter = function(filter, value) {
     var index = TownHall.filters[filter].indexOf(value);
@@ -176,13 +194,13 @@
     if (TownHall.filters[filter].length === 0) {
       delete TownHall.filters[filter];
     }
-  }
+  };
 
   TownHall.resetFilters = function() {
     Object.keys(TownHall.filters).forEach(function(key) {
       delete TownHall.filters[key];
     });
-  }
+  };
 
   TownHall.addFilterIndexes = function(townhall) {
     if (TownHall.allStates.indexOf(townhall.State) === -1) {
@@ -191,7 +209,7 @@
     if (TownHall.allMoCs.indexOf(townhall.Member) === -1) {
       TownHall.allMoCs.push(townhall.Member);
     }
-  }
+  };
 
   module.TownHall = TownHall;
 })(window);

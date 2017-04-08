@@ -403,6 +403,14 @@
       var tableRowTemplate = Handlebars.getTemplate('eventTableRow');
       var mapPopoverTemplate = Handlebars.getTemplate('mapPopover');
       var ele = new TownHall (snapshot.val());
+      // if (ele.Party === 'Unaffiliated') {
+      //   ele.Party = null;
+      // }
+      // if (ele.Member === 'Unaffiliated') {
+      //   ele.Member = null;
+      // }
+
+      ele.removeUnaffliated();
       TownHall.allTownHalls.push(ele);
       TownHall.addFilterIndexes(ele);
       eventHandler.initialTable(ele);
