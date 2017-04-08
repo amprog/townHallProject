@@ -397,12 +397,14 @@
 // Adds all events into main data array
 // Adds all events as markers
 // renders tables
-  window.readData = function (){
-    var townHallsFB = firebase.database().ref('/townHalls/').orderByChild('State');
+  window.readData = function (path){
+    var townHallsFB = firebase.database().ref(path).orderByChild('dateObj');
     townHallsFB.on('child_added', function getSnapShot(snapshot) {
       var tableRowTemplate = Handlebars.getTemplate('eventTableRow');
       var mapPopoverTemplate = Handlebars.getTemplate('mapPopover');
       var ele = new TownHall (snapshot.val());
+
+      ele.removeUnaffliated();
       TownHall.allTownHalls.push(ele);
       TownHall.addFilterIndexes(ele);
       eventHandler.initialTable(ele);
@@ -426,7 +428,11 @@
         name: ele.name,
         time: ele.time
       });
-      marker.setIcon('https://maps.google.com/mapfiles/ms/icons/red-dot.png');
+      if (!ele.Party) {
+        marker.setIcon('https://maps.google.com/mapfiles/ms/icons/yellow-dot.png');
+      } else {
+        marker.setIcon('https://maps.google.com/mapfiles/ms/icons/red-dot.png');
+      }
       marker.addListener('click', function() {
         infowindow.setContent(contentString);
         infowindow.open(map, marker);
@@ -434,6 +440,7 @@
     });
   };
 
-  readData();
+  readData('/townHalls/');
+  readData('/capEvents/');
 
 }(window.firebase));
