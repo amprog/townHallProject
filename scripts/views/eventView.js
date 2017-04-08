@@ -163,7 +163,7 @@
     var cur = parseInt($currentState.attr('data-current'));
     $currentState.attr('data-total', total);
     $table = $('#all-events-table');
-    if (townhall.meetingType === 'Town Hall') {
+    if (townhall.meetingType === 'Town Hall' || townhall.meetingType === 'Town Hall') {
       cur ++;
       eventHandler.renderTable(townhall, $table);
       $currentState.attr('data-current', cur);
