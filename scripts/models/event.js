@@ -108,6 +108,7 @@
       TownHall.returnNearest(zipQueryLoc).then(function(sorted) {
         eventHandler.render(sorted, zipQueryLoc, representativePromise);
       });
+      $('#partnership-text').hide();
     }).catch(function(error){
       var $results = $('#textresults');
       console.log(error);

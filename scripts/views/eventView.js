@@ -42,6 +42,7 @@
     eventHandler.addFilter('meetingType', 'Town Hall');
     TownHall.sortOn = 'State';
     eventHandler.renderTableWithArray(eventHandler.getFilterState());
+    $('#partnership-text').show();
   };
 
   // Renders one panel, assumes data processing has happened
@@ -257,6 +258,7 @@
   }
 
   $(document).ready(function(){
+    $('#partnership-text').show();
     init();
   });
 
