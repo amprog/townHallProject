@@ -187,7 +187,7 @@
     if (TownHall.allStates.indexOf(townhall.State) === -1) {
       TownHall.allStates.push(townhall.State);
     }
-    if (TownHall.allMoCs.indexOf(townhall.Member) === -1) {
+    if (townhall.Member && TownHall.allMoCs.indexOf(townhall.Member) === -1) {
       TownHall.allMoCs.push(townhall.Member);
     }
   };
