@@ -447,7 +447,14 @@
                 s.src = ('https:' == window.location.protocol ? 'https' : 'http')+'://addtocalendar.com/atc/1.5/atc.min.js';
                 var h = d[g]('body')[0];h.appendChild(s); }})();
     </script>
-    <!-- Script Files -->
+
+    <script>
+        $(window).load(function(){
+            $('.dropdown-menu.sort #byDate.dropdown-item').click()
+        });
+    </script>
+
+      <!-- Script Files -->
     <script src="/scripts/models/event.js"></script>
     <script src="/scripts/views/mapView.js"></script>
     <script src="/scripts/views/eventView.js"></script>
