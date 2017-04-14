@@ -21,7 +21,7 @@
     </li>
     {{/if}}
     {{#if Time}}
-    <li>{{Time}}{{#if timeZone}}, {{timeZone}}{{/if}}  </li>
+    <li>{{Time}}{{#if Member}}{{#if timeZone}}, {{timeZone}}{{/if}} {{/if}} </li>
     {{/if}}
     {{#if Member}}
     {{#if eventName}}
