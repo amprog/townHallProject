@@ -100,7 +100,7 @@
     });
     /*eslint-env es6*/
     /*eslint quotes: ["error", "single", { "allowTemplateLiterals": true }]*/
-    $currentState.text(`Viewing ${cur} of ${total} total events`);
+    $currentState.text('Viewing ' + cur + ' of ' + total + ' total events');
   };
 
   // render table row
@@ -173,7 +173,7 @@
       eventHandler.renderTable(townhall, $table);
       $currentState.attr('data-current', cur);
     }
-    $currentState.text(`Viewing ${cur} of ${total} total events`);
+    $currentState.text('Viewing ' + cur + ' of ' + total + ' total events');
   };
 
   // renders results of search
