@@ -4,24 +4,25 @@
   data-content="{{#if Notes}}{{Notes}}{{/if}}{{#unless Notes}}There are no notes for this event.{{/unless}}">
   <span class="member">
     {{#if Member}}
-    <h4>
+    <h4 class="event-name" data-value="{{Member}} ({{Party}}) {{State}}, {{District}}">
     {{Member}}
       <small>({{Party}})  {{State}},   {{District}}
       </small>
     </h4>
     {{/if}}
     {{#unless Member}}
-    <h4>{{eventName}}</h4>
+    <h4 class="event-name" data-value="{{eventName}}">{{eventName}}</h4>
     {{/unless}}
- <span class="badge badge-default badge-pill pull-right">  {{meetingType}}</span>
+ <span class="badge badge-default badge-pill pull-right badge-rsvpButton" style="margin-left: 20px; background-color: #ff4741;">RSVP</span>
+ <span class="badge badge-default badge-pill pull-right event-type" data-value="{{meetingType}}">  {{meetingType}}</span>
   </span>
   <ul class="list-inline list-inline-separated">
     {{#if Date}}
-    <li>{{Date}}
+    <li class="event-date" data-value="{{Date}}">{{Date}}
     </li>
     {{/if}}
     {{#if Time}}
-    <li>{{Time}}{{#if timeZone}}, {{timeZone}}{{/if}}  </li>
+    <li class="event-time" data-value="{{Time}}">{{Time}}{{#if timeZone}}, {{timeZone}}{{/if}}  </li>
     {{/if}}
     {{#if Member}}
     {{#if eventName}}
@@ -29,13 +30,13 @@
     {{/if}}
     {{/if}}
     {{#if Location}}
-    <li>{{Location}}</li>
+    <li class="event-venue" data-value="{{Location}}">{{Location}}</li>
     {{/if}}
     {{#if phoneNumber}}
     <li>{{phoneNumber}}</li>
     {{/if}}
     {{#if address}}
-    <li>{{address}}</li>
+    <li class="event-address" data-value="{{address}}">{{address}}</li>
     {{/if}}
   </ul>
 </li>
