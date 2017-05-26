@@ -85,7 +85,7 @@ jQuery(document).ready(function($) {
     var event_name = $(this).closest('.panel-secondary').find('.event-name').attr('data-value');
     var event_date = $(this).closest('.panel-secondary').find('.event-date').attr('data-value');
     var event_milli = new Date(event_date);
-    var event_unix_timestamp = event_milli.getFullYear() + "-" + event_milli.getMonth() + "-" + event_milli.getDate() + " " + event_milli.getHours() + ":" + (event_milli.getMinutes()<10?'0':'') + event_milli.getMinutes();
+    var event_unix_timestamp = event_milli.getFullYear() + "-" + (event_milli.getMonth() + 1) + "-" + event_milli.getDate() + " " + event_milli.getHours() + ":" + (event_milli.getMinutes()<10?'0':'') + event_milli.getMinutes();
     var event_venue = $(this).closest('.panel-secondary').find('.event-venue').attr('data-value');
     var event_address = $(this).closest('.panel-secondary').find('.event-address').attr('data-value');
     //var event_url = $(this).closest('.panel-body').find('.event-link').attr('data-value');
@@ -107,7 +107,7 @@ jQuery(document).ready(function($) {
     var event_time = ($(this).closest('.event-row.list-group-item').find('.event-time').attr('data-value')?$(this).closest('.event-row.list-group-item').find('.event-time').attr('data-value'):"");
     var event_date_time_string = event_date + " " + event_time;
     var event_milli = new Date(event_date_time_string);
-    var event_unix_timestamp = event_milli.getFullYear() + "-" + event_milli.getMonth() + "-" + event_milli.getDate() + " " + event_milli.getHours() + ":" + (event_milli.getMinutes()<10?'0':'') + event_milli.getMinutes();
+    var event_unix_timestamp = event_milli.getFullYear() + "-" + (event_milli.getMonth() + 1) + "-" + event_milli.getDate() + " " + event_milli.getHours() + ":" + (event_milli.getMinutes()<10?'0':'') + event_milli.getMinutes();
     var event_venue = $(this).closest('.event-row.list-group-item').find('.event-venue').attr('data-value');
     var event_address = $(this).closest('.event-row.list-group-item').find('.event-address').attr('data-value');
     //var event_url = $(this).closest('.event-row.list-group-item').find('.event-link').attr('data-value');
