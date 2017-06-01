@@ -1,27 +1,36 @@
 jQuery(document).ready(function($) {
   function rsvpPopup(source, campaign, event_id, event_type, event_name, event_date, event_unix_timestamp, event_venue, event_address, event_url) {
-    var popup = '<div id="rsvp-popup" class="popup">' +
-            '<div class="pum-content popmake-content">' +
-            '<div id="thanks" style="display: none"><p>Thank you for signing up for a Resistance Near Me event! Please check your email for a confirmation message. If you’re new to our database, you’ll also get an email from us asking you to opt-in to future messages. <strong>This is important – you must opt in to receive event updates or cancellation notices.</strong> Simply click on the “Yes, subscribe me” button, and you’ll be set.</p></div>' +
-            '<form action="https://s785.t.eloqua.com/e/f2" method="post" id="main-form">' +
-            '* E-mail:<input type="email" name="email" id="email" required>' +
-            '* ZIP code:<input type="text" name="rsvp_zip" id="rsvp_zip" required>' +
-            '<input type="hidden" name="rsvp_source" value="'+source+'">' +
-            '<input type="hidden" name="rsvp_campaign" value="'+campaign+'">' +
-            '<input type="hidden" name="event-id" value="'+event_id+'">' +
-            '<input type="hidden" name="event-type" value="'+event_type+'">' +
-            '<input type="hidden" name="event-name" value="'+event_name+'">' +
-            '<input type="hidden" name="event-date-string" value="'+event_date+'">' +
-            '<input type="hidden" name="event-date" value="'+event_unix_timestamp+'">' +
-            '<input type="hidden" name="event-venue" value="'+event_venue+'">' +
-            '<input type="hidden" name="event-address" value="'+event_address+'">' +
-            '<input type="hidden" name="elqFormName" value="townhallregistrations">' +
-            '<input type="hidden" name="elqSiteID" value="785">' +
-            '<input type="submit" value="Send" id="popup-submit" class="btn">' +
-            '</form>' +
-            '</div>' +
-            '<button type="button" class="pum-close popmake-close" aria-label="Close">X</button>' +
-            '</div>';
+    if(event_id != '9ac8d2ff-b8ad-4703-b671-0d36a352e525') {
+      var popup = '<div id="rsvp-popup" class="popup">' +
+          '<div class="pum-content popmake-content">' +
+          '<div id="thanks" style="display: none"><p>Thank you for signing up for a Resistance Near Me event! Please check your email for a confirmation message. If you’re new to our database, you’ll also get an email from us asking you to opt-in to future messages. <strong>This is important – you must opt in to receive event updates or cancellation notices.</strong> Simply click on the “Yes, subscribe me” button, and you’ll be set.</p></div>' +
+          '<form action="https://s785.t.eloqua.com/e/f2" method="post" id="main-form">' +
+          '* E-mail:<input type="email" name="email" id="email" required>' +
+          '* ZIP code:<input type="text" name="rsvp_zip" id="rsvp_zip" required>' +
+          '<input type="hidden" name="rsvp_source" value="' + source + '">' +
+          '<input type="hidden" name="rsvp_campaign" value="' + campaign + '">' +
+          '<input type="hidden" name="event-id" value="' + event_id + '">' +
+          '<input type="hidden" name="event-type" value="' + event_type + '">' +
+          '<input type="hidden" name="event-name" value="' + event_name + '">' +
+          '<input type="hidden" name="event-date-string" value="' + event_date + '">' +
+          '<input type="hidden" name="event-date" value="' + event_unix_timestamp + '">' +
+          '<input type="hidden" name="event-venue" value="' + event_venue + '">' +
+          '<input type="hidden" name="event-address" value="' + event_address + '">' +
+          '<input type="hidden" name="elqFormName" value="townhallregistrations">' +
+          '<input type="hidden" name="elqSiteID" value="785">' +
+          '<input type="submit" value="Send" id="popup-submit" class="btn">' +
+          '</form>' +
+          '</div>' +
+          '<button type="button" class="pum-close popmake-close" aria-label="Close">X</button>' +
+          '</div>';
+    } else {
+      var popup = '<div id="rsvp-popup" class="popup">' +
+        '<div class="pum-content popmake-content">' +
+        '<div id="no-rsvp"><p><strong>Unfortunately this event is sold out and has a waiting list. You\'ll need to try to RSVP at the event site itself.</strong></p></div>' +
+        '</div>' +
+        '<button type="button" class="pum-close popmake-close" aria-label="Close">X</button>' +
+        '</div>';
+    }
     var overlay = '<div id="overlay"></div>'
 
     $("body").append(overlay);

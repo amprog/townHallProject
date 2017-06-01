@@ -124,7 +124,7 @@
     // if (townhall.dist) {
     //   townhall.dist = Math.round(townhall.dist/1609.344);
     // }
-    // townhall.addressLink = 'https://www.google.com/maps?q=' + escape(townhall.address);
+    townhall.addressLink = 'https://www.google.com/maps?q=' + escape(townhall.address);
     if(townhall.eventId == eventid) {
       var compiledTemplate = Handlebars.getTemplate('singleEventView');
       $('#event-details').append(compiledTemplate(townhall));
