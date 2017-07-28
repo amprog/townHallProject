@@ -407,7 +407,6 @@
       ele.removeUnaffliated();
       TownHall.allTownHalls.push(ele);
       TownHall.addFilterIndexes(ele);
-      eventHandler.initialTable(ele);
       $('[data-toggle="popover"]').popover({
         container: 'body',
         html:true

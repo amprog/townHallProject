@@ -56,25 +56,27 @@
 @import "responsive-utilities.less";
 
 // Brand Colors
-@brand-primary: #0d4668;
-@brand-secondary: #ff4741; //red
+@brand-primary: #333333;
+@brand-secondary: #e5d93e; //red
+@brand-tertiary: #ff4741; //red
 @brand-cool: #b6e5fb;
 @brand-text: #132149;
 @brand-gray: #d4e0e5;
 @brand-success: #3facef;
 @brand-info: #132149;
 @brand-secondary-dark : darken(@brand-secondary, 20%);
+@brand-tertiary-dark : darken(@brand-tertiary, 20%);
 @brand-white: #ffffff;
 .text-white{
   color: white;
 }
 
 .text-secondary{
-  color: @brand-secondary;
+  color: @brand-tertiary;
 }
 
 .text-secondary-dark{
-  color: @brand-secondary-dark;
+  color: @brand-tertiary-dark;
 }
 
 .background-gray{
@@ -100,12 +102,12 @@
 @navbar-collapse-max-height:       340px;
 
 @navbar-default-color:             #777;
-@navbar-default-bg:                #ffffff;
+@navbar-default-bg:                #333333;
 @navbar-default-border:            darken(@navbar-default-bg, 6.5%);
 
 // Navbar links
-@navbar-default-link-color:                lighten(@brand-info, 10%);
-@navbar-default-link-hover-color:          @brand-primary;
+@navbar-default-link-color:                #e5d93e;
+@navbar-default-link-hover-color:          #ffffff;
 @navbar-default-link-hover-bg:             transparent;
 @navbar-default-link-active-color:         @brand-success;
 @navbar-default-link-active-bg:            #ffffff;
@@ -127,7 +129,7 @@
 }
 
 .navbar-right .btn {
-  font-size: 20px;
+  font-size: 14px;
 }
 
 .navbar-right .social-icons {
@@ -141,6 +143,18 @@
   padding: 10px;
 }
 
+.dropdown-toggle {
+  color: #333333!important;
+}
+.navbar-left.switch {
+  float: right!important;
+  font-size: 14px;
+}
+.navbar-right.switch {
+  float: left!important;
+  font-size: 12px;
+  margin-top: 0.5rem;
+}
 //## Define colors for form feedback states and, by default, alerts.
 
 @state-success-text:             @brand-success;
@@ -188,9 +202,51 @@ h2 {
 header{
   background-color: @brand-primary;
   color: white;
-  padding: 20px;
+  padding: 0;
+  height: 350px;
+  border-bottom: 2px solid @brand-secondary;
 }
 
+header .container-right {
+  float: right;
+  background: url("/Images/gray_stripes.jpg") repeat-x;
+  -webkit-background-size: contain;
+  background-size: contain;
+  height: 100%;
+  width: 67%;
+}
+header .header-logo {
+  width: 400px;
+  height: auto;
+}
+header .container-left {
+  float: left;
+  background: url("/Images/resistance_picture.jpg") no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
+  width: 33%;
+  text-align: center;
+}
+
+#look-up {
+  margin: 20% auto auto auto;
+  text-align: left;
+}
+/*
+#look-up {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  width: 300px;
+  height: 300px;
+  margin-top: -150px; !* Half the height *!
+  margin-left: -150px; !* Half the width *!
+}
+*/
+
+.list-group-item:first-of-type {
+  border: none;
+}
 #disclaimer{
   margin-top: 20px;
   border-top: 1px solid @brand-gray;
@@ -202,8 +258,13 @@ header{
   bottom: 0;
   width: 100%;
   height: 12em;
-  background-color: @brand-info;
+  background-color: @brand-primary;
   padding: 40px;
+  small {
+    a {
+      color: @brand-tertiary;
+    }
+  }
 }
 
 img{
@@ -299,6 +360,9 @@ a.social-icon {
    }
    .navbar-nav{
      margin-left: 0;
+   }
+   .navbar-static-top {
+     border: none;
    }
  }
 
@@ -420,7 +484,7 @@ a.social-icon {
 
 #filter-info {
   max-width: 50%;
-  margin: 20px 0 0px 20px;
+  margin: 10px 0 0px 20px;
   li {
     margin-bottom: 10px;
     margin-right: 10px;
@@ -436,10 +500,11 @@ a.social-icon {
 
 // Results
 .input-md, .input-lg{
-  background-color: @brand-secondary;
-  color: white;
+  background-color: #ffffff;
+  color: #333333;
   margin-bottom: 10px;
   border:none;
+  display: block!important;
 }
 
 #can-form-area-stay-up-to-date-on-our-work input{
@@ -451,29 +516,36 @@ a.social-icon {
 }
 
 .input-lg::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-  color: white;
+  color: #999999;
 }
 .input-lg::-moz-placeholder { /* Firefox 19+ */
-  color: white;
+  color: #999999;
 }
 .input-lg:-ms-input-placeholder { /* IE 10+ */
-  color: white;
+  color: #999999;
 }
 .input-lg:-moz-placeholder { /* Firefox 18- */
-  color: white;
+  color: #999999;
 }
 
 .btn-primary{
+  /*
   border: white solid 2px;
-  background-color: @brand-primary;
+  */
+  background-color: @brand-secondary;
   margin-bottom: 10px;
-  color: white;
+  color: @brand-primary;
+  padding: 2px 16px!important;
+  display: block;
 }
 
 .btn-primary:hover{
+  /*
   border: white solid 2px;
+  */
   background-color:white;
   color: @brand-primary;
+  padding: 2px 16px!important;
 }
 
 #donate-button{
@@ -618,6 +690,12 @@ li[data-toggle='popover']:hover {
 
 img.grayscale {
   filter: grayscale(100%);
+}
+@media screen and (min-width: 1200px) {
+  .container-left {
+    width: 33%;
+    height: 100%;
+  }
 }
 
 @media screen and (max-width: 959px){

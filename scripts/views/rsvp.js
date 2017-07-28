@@ -16,6 +16,7 @@ jQuery(document).ready(function($) {
           '<input type="hidden" name="event-date" value="' + event_unix_timestamp + '">' +
           '<input type="hidden" name="event-venue" value="' + event_venue + '">' +
           '<input type="hidden" name="event-address" value="' + event_address + '">' +
+          '<input type="hidden" name="event-url" value="' + event_url + '">' +
           '<input type="hidden" name="elqFormName" value="townhallregistrations">' +
           '<input type="hidden" name="elqSiteID" value="785">' +
           '<input type="submit" value="Send" id="popup-submit" class="btn">' +
@@ -97,9 +98,9 @@ jQuery(document).ready(function($) {
     var event_unix_timestamp = event_milli.getFullYear() + "-" + (event_milli.getMonth() + 1) + "-" + event_milli.getDate() + " " + event_milli.getHours() + ":" + (event_milli.getMinutes()<10?'0':'') + event_milli.getMinutes();
     var event_venue = $(this).closest('.panel-secondary').find('.event-venue').attr('data-value');
     var event_address = $(this).closest('.panel-secondary').find('.event-address').attr('data-value');
-    //var event_url = $(this).closest('.panel-body').find('.event-link').attr('data-value');
+    var event_url = 'https://resistancenearme.org/event.html?eid=' + event_id;
 
-    rsvpPopup(source, campaign, event_id, event_type, event_name, event_date, event_unix_timestamp, event_venue, event_address/*, event_url*/);
+    rsvpPopup(source, campaign, event_id, event_type, event_name, event_date, event_unix_timestamp, event_venue, event_address, event_url);
   });
 
   $('body').on('click', '.badge-rsvpButton', function (e) {
@@ -119,10 +120,10 @@ jQuery(document).ready(function($) {
     var event_unix_timestamp = event_milli.getFullYear() + "-" + (event_milli.getMonth() + 1) + "-" + event_milli.getDate() + " " + event_milli.getHours() + ":" + (event_milli.getMinutes()<10?'0':'') + event_milli.getMinutes();
     var event_venue = $(this).closest('.event-row.list-group-item').find('.event-venue').attr('data-value');
     var event_address = $(this).closest('.event-row.list-group-item').find('.event-address').attr('data-value');
-    //var event_url = $(this).closest('.event-row.list-group-item').find('.event-link').attr('data-value');
+    var event_url = 'https://resistancenearme.org/event.html?eid=' + event_id;
 
 
-    rsvpPopup(source, campaign, event_id, event_type, event_name, event_date_time_string, event_unix_timestamp, event_venue, event_address/*, event_url*/);
+    rsvpPopup(source, campaign, event_id, event_type, event_name, event_date_time_string, event_unix_timestamp, event_venue, event_address, event_url);
   });
 
 

@@ -38,10 +38,10 @@
     var $results = $('#textresults');
     $parent.empty();
     $results.empty();
-    eventHandler.resetFilters();
-    eventHandler.addFilter('meetingType', 'Town Hall');
-    TownHall.sortOn = 'State';
-    eventHandler.renderTableWithArray(eventHandler.getFilterState());
+    //eventHandler.resetFilters();
+    //eventHandler.addFilter('meetingType', 'Town Hall');
+    //TownHall.sortOn = 'State';
+    //eventHandler.renderTableWithArray(eventHandler.getFilterState());
     $('#partnership-text').show();
   };
 
@@ -91,16 +91,21 @@
     $currentState = $('#current-state');
     var total = parseInt($currentState.attr('data-total'));
     var cur = array.length;
-    array.forEach(function(ele){
-      eventHandler.renderTable(ele, $table);
-    });
-    $('[data-toggle="popover"]').popover({
-      container: 'body',
-      html:true
-    });
-    /*eslint-env es6*/
-    /*eslint quotes: ["error", "single", { "allowTemplateLiterals": true }]*/
-    $currentState.text('Viewing ' + cur + ' of ' + total + ' total events');
+    var $results = $('#textresults');
+    if(array === TownHall.allTownHalls) {
+      $results.detach();
+    } else {
+      array.forEach(function (ele) {
+        eventHandler.renderTable(ele, $table);
+      });
+      $('[data-toggle="popover"]').popover({
+        container: 'body',
+        html: true
+      });
+      /*eslint-env es6*/
+      /*eslint quotes: ["error", "single", { "allowTemplateLiterals": true }]*/
+      $currentState.text('Viewing ' + cur + ' of ' + total + ' total events');
+    }
   };
 
   // render table row
@@ -162,6 +167,7 @@
   };
 
   // initial state of table
+/*
   eventHandler.initialTable = function (townhall) {
     $currentState = $('#current-state');
     var total = parseInt($currentState.attr('data-total')) + 1;
@@ -175,6 +181,7 @@
     }
     $currentState.text('Viewing ' + cur + ' of ' + total + ' total events');
   };
+*/
 
   // renders results of search
   eventHandler.render = function (events, zipQuery, representativePromise) {
@@ -267,14 +274,14 @@
     $('#button-to-form').hide();
     $('#save-event').on('submit', eventHandler.save);
     $('#look-up').on('submit', eventHandler.lookup);
-    $('#view-all').on('click', TownHall.viewAll);
-    $('.sort').on('click', 'a', eventHandler.sortTable);
+    // $('#view-all').on('click', TownHall.viewAll);
+    // $('.sort').on('click', 'a', eventHandler.sortTable);
     setupTypeaheads();
     $('.filter').on('click', 'a', eventHandler.filterTable);
     $('#filter-info').on('click', 'button.btn', eventHandler.removeFilter);
-    eventHandler.resetFilters();
+    // eventHandler.resetFilters();
     // eventHandler.addFilter('meetingType', 'Town Hall');
-    eventHandler.addFilter('meetingType', 'Resistance Event');
+    // eventHandler.addFilter('meetingType', 'Resistance Event');
 
     // url hash for direct links to subtabs
     // slightly hacky routing

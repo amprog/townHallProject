@@ -1,6 +1,6 @@
 module.exports = function(grunt) {
   grunt.initConfig({
-        watch: {
+    watch: {
       scripts: {
         files: ['styles/customboot.less'],
         tasks: ['dist-css'],
@@ -72,6 +72,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
 
   // CSS distribution task.
-  grunt.registerTask('dist-css', ['less:compileCore', 'autoprefixer', 'cssmin']);
+  //grunt.registerTask('default', ["uglify"]);
+  grunt.registerTask('default', ['less:compileCore', 'autoprefixer', 'cssmin']);
 
 };

@@ -41,7 +41,7 @@
   <link href="vendor/styles/jquery-ui.min.css" rel="stylesheet" type="text/css">
   <link href="vendor/styles/jquery-ui.structure.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,900" rel="stylesheet">
-  <link rel="stylesheet" href="/styles/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styles/css/bootstrap.min.css">
   <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
               (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -129,7 +129,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a data-toggle="tab" href="#home" class="navbar-brand hash-link" id="brand-icon"><img src="/Images/RNM_logo_on_white.png" alt="" height="100%" width="auto" style="width: auto!important; filter: grayscale(85%);"></a>
+          <a data-toggle="tab" href="#home" class="navbar-brand hash-link" id="brand-icon"><img src="Images/RNM_logo_yellow_small.png" alt="" height="100%" width="auto" style="width: auto!important;"></a>
         </div>
         <div class="collapse navbar-collapse" id="main-nav">
           <ul class="nav navbar-nav navbar-left" roll="tablists">
@@ -150,16 +150,27 @@
     <div class="tab-content">
       <div role="tabpanel" class="tab-pane page active" id="home">
         <header class="site-header clearfix">
-           <section class=" container container-fluid">
+          <section class=" container container-fluid container-left">
+            <form id="look-up" class="form-inline text-center" action="index.html" method="post">
+              <div class="form-group text-center">
+                <label  for="zip"></label>
+                <input class="form-control input-lg " id="zip" type="zip" name="" value="" placeholder="Zip Code">
+
+                <button type="submit" name="button" class="btn btn-primary btn-lg">Find an event</button>
+                <div id="textresults" class="text-center "></div>
+              </div>
+            </form>
+          </section>
+            <section class=" container container-fluid container-right">
              <div class="row">
                <div class="col-md-6 left-panels">
                   <div  class=" text-left site-header clearfix displayoff ">
                     <div class="form-text-results col-md-12">
                       <div class="text-toggle header-large">
-                        <img src="/Images/RNM_logo_big.png" alt="">
+                        <img class="header-logo" src="Images/RNM_logo_big.png" alt="Resistance Near Me Logo" width="400" height="auto">
                       </div>
                       <div class="text-toggle header-small hidden ">
-                        <!-- <img src="/Images/THP_logo_inverse_simple.png" alt=""> -->
+                        <!-- <img src="Images/THP_logo_inverse_simple.png" alt=""> -->
                       </div>
                     </div>
                   </div>
@@ -167,14 +178,6 @@
                 <div class="col-md-6 right-panels">
                   <div class="spacer">
                   </div>
-                  <form id="look-up" class="form-inline text-center" action="index.html" method="post">
-                    <div class="form-group text-center">
-                      <label  for="zip"></label>
-                      <input class="form-control input-lg " id="zip" type="zip" name="" value="" placeholder="Zip Code">
-                      <button type="submit" name="button" class="btn btn-primary btn-lg">Find An Event</button>
-                      <div id="textresults" class="text-center "></div>
-                    </div>
-                  </form>
                   <div id="signupform ">
                     <div id="button-to-form" class="text-center hidden">
                       <h4>Sign up to stay up to date on town halls in your area</h4>
@@ -184,7 +187,7 @@
                 </div>
                <div class="col-md-12" style="text-align: left; padding-left: 6rem;">
                  <p id="partnership-text" style="width: 95%;">
-                   In partnership with Town Hall Project, Resistance Near Me is a hub for progressive local
+                   Resistance Near Me is a hub for progressive local
                    #resist actions, designed for you to find any public event, rally, town hall, protest,
                    and more, near you, as well as the information you need to contact your member of Congress.
                    It's never been more important to raise our voices to resist Trump’s harmful agenda and the
@@ -195,59 +198,21 @@
              </div>
             </section>
         </header>
-        <div class="container-fluid">
-          <div class="row map-large">
-            <div id="map"></div>
-          </div>
-        </div>
-        <div class="header-with-results">
-          <section class="container container-fluid">
-            <div class="row">
-              <div class="col-md-6 no-padding ">
-                   <section class="results">
-                     <div id="nearest" class="flexcroll"></div>
-                   </section>
-               </div>
-               <div class="col-md-6 map-small no-padding">
-               </div>
-            </div>
-           </section>
-        </div>
-        <!-- Cards showing representatives and their contact info -->
-        <div id="representativeCards">
-          <section class="container container-fluid"></section>
-        </div>
-        <section class="scroll-to-form text-center">
-            <p>
-              <a href="#events-table" class="scroll-button btn btn-white btn-lg">
-                <i class="fa fa-chevron-down fa-2x" aria-hidden="true"></i>
-              </a>
-            </p>
-        </section>
-        <a name="events-table" id="events-table"></a>
         <section class=" container container-fluid">
+<!--
           <h2 class="text-primary table-title text-center">Upcoming Events</h2>
-          <div class="row">
-              <small>
-                <ul class="list-unstyled container">
-                  <li><span class="text-secondary">Resistance Event</span><span> - A public rally, protest, or march that doesn't necessarily include a member of Congress</span></li>
-                  <li><span class="text-secondary">Town Hall</span><span> - A forum where members of Congress give updates on the current affairs of Congress and answer questions from constituents</span></li>
-                  <li><span class="text-secondary">Office Hours </span><span> - Serves the same purpose as a Town Hall, however Elected Officials are not always expected to attend	</span></li>
-                  <li><span class="text-secondary">Ticketed Event</span><span> - Oftentimes county party events, local fundraisers, or campaign functions. There may be a fee for admission.</span></li>
-                  <li><span class="text-secondary">TeleTown Hall Meeting </span><span>	- A town hall conducted by conference call.</span></li>
-                  <li><span class="text-secondary">DC Event</span><span>	- Event held in the MOC's DC Office.</span></li>
-                  <li><span class="text-secondary">Coffee</span><span> - Usually a small regular meeting with constituents in Washington D.C. while Congress is in session.</span></li>
-                </ul>
-              </small>
-          </div>
+-->
           <div>
             <ul id="all-events-table" class="list-group">
               <li class="list-group-item list-group-heading">
-                <nav class="navbar navbar-default navbar-static-top ">
-                  <ul class="nav navbar-nav navbar-left" id="filter-info">
+                <nav class="navbar navbar-static-top ">
+                  <h3 style="display: inline-block; float: left;">Filter events by...</h3>
+                  <ul class="nav navbar-nav navbar-right switch">
+                  <ul class="nav navbar-nav navbar-left switch" id="filter-info">
+<!--
                     <li><span id="current-state" data-current=0 data-total=0></span></li>
+-->
                   </ul>
-                  <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Member <span class="caret"></span></a>
                       <ul class="dropdown-menu">
@@ -302,7 +267,52 @@
               </li> <!-- end header-->
             </ul><!--end table-->
           </div>
+          <div class="row">
+            <small>
+              <ul class="list-unstyled container">
+                <li><span class="text-secondary">Resistance Event</span><span> - A public rally, protest, or march that doesn't necessarily include a member of Congress</span></li>
+                <li><span class="text-secondary">Town Hall</span><span> - A forum where members of Congress give updates on the current affairs of Congress and answer questions from constituents</span></li>
+                <li><span class="text-secondary">Office Hours </span><span> - Serves the same purpose as a Town Hall, however Elected Officials are not always expected to attend	</span></li>
+                <li><span class="text-secondary">Ticketed Event</span><span> - Oftentimes county party events, local fundraisers, or campaign functions. There may be a fee for admission.</span></li>
+                <li><span class="text-secondary">TeleTown Hall Meeting </span><span>	- A town hall conducted by conference call.</span></li>
+                <li><span class="text-secondary">DC Event</span><span>	- Event held in the MOC's DC Office.</span></li>
+                <li><span class="text-secondary">Coffee</span><span> - Usually a small regular meeting with constituents in Washington D.C. while Congress is in session.</span></li>
+              </ul>
+            </small>
+          </div>
         </section>
+        <div class="container-fluid">
+          <div class="row map-large">
+            <div id="map"></div>
+          </div>
+        </div>
+        <div class="header-with-results">
+          <section class="container container-fluid">
+            <div class="row">
+              <div class="col-md-6 no-padding ">
+                   <section class="results">
+                     <div id="nearest" class="flexcroll"></div>
+                   </section>
+               </div>
+               <div class="col-md-6 map-small no-padding">
+               </div>
+            </div>
+           </section>
+        </div>
+        <!-- Cards showing representatives and their contact info -->
+        <div id="representativeCards">
+          <section class="container container-fluid"></section>
+        </div>
+        <section class="scroll-to-form text-center">
+            <p>
+<!--
+              <a href="#events-table" class="scroll-button btn btn-white btn-lg">
+                <i class="fa fa-chevron-down fa-2x" aria-hidden="true"></i>
+              </a>
+-->
+            </p>
+        </section>
+        <a name="events-table" id="events-table"></a>
       </div>
       <div role="tabpanel" class="tab-pane " id="submit">
         <div class='embed-container'>
@@ -488,10 +498,10 @@
                 <div  class=" text-left site-header clearfix displayoff ">
                   <div class="form-text-results col-md-12">
                     <div class="text-toggle header-large">
-                      <img src="/Images/RNM_logo_big.png" alt="">
+                      <img src="Images/RNM_logo_big.png" alt="">
                     </div>
                     <div class="text-toggle header-small hidden ">
-                      <!-- <img src="/Images/THP_logo_inverse_simple.png" alt=""> -->
+                      <!-- <img src="Images/THP_logo_inverse_simple.png" alt=""> -->
                     </div>
                   </div>
                 </div>
@@ -570,7 +580,7 @@
           </li>
           <li><small>Event details can change at short notice, please contact your representative to confirm.</small></li>
           <li><small>Resistance Near Me is a project of the Center for American Progress Action Fund.  Please review our <a href="https://www.americanprogressaction.org/about/c4-terms/">Terms of Use</a> and <a href="https://www.americanprogressaction.org/about/c4-privacy-policy/">Privacy Policy</a>.</small></li>
-          <li><img src="/Images/capaf_mark_67.png" width="67" height="67" style="width: 67px!important;float: right;
+          <li><img src="Images/capaf_mark_67.png" width="67" height="67" style="width: 67px!important;float: right;
     position: relative;
     top: -50px;
     left: 0;"></li>
