@@ -55,7 +55,8 @@ jQuery(document).ready(function($) {
           encode: true,
         });
         $('#main-form').hide();
-        $('#thanks').show();
+        location.replace("eventthankyou.html?eid=" + event_id + "&ename=" + event_name);
+        //$('#thanks').show();
       //setTimeout(function () {
       //removePopup();
       //}, 19000);
