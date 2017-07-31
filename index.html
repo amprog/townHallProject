@@ -198,7 +198,7 @@
              </div>
             </section>
         </header>
-        <section class=" container container-fluid">
+        <section class="main-event-table container container-fluid">
 <!--
           <h2 class="text-primary table-title text-center">Upcoming Events</h2>
 -->
@@ -492,7 +492,18 @@
       </div>
       <div role="tabpanel" class="tab-pane " id="resources">
         <header class="site-header clearfix">
-          <section class=" container container-fluid">
+          <section class=" container container-fluid container-left">
+            <form id="look-up" class="form-inline text-center" action="index.html" method="post">
+              <div class="form-group text-center">
+                <label  for="zip"></label>
+                <input class="form-control input-lg " id="zip" type="zip" name="" value="" placeholder="Zip Code">
+
+                <button type="submit" name="button" class="btn btn-primary btn-lg">Find an event</button>
+                <div class="textresults" class="text-center "></div>
+              </div>
+            </form>
+          </section>
+          <section class=" container container-fluid container-right">
             <div class="row">
               <div class="col-md-6 left-panels">
                 <div  class=" text-left site-header clearfix displayoff ">
@@ -509,14 +520,6 @@
               <div class="col-md-6 right-panels">
                 <div class="spacer">
                 </div>
-                <form id="look-up" class="form-inline text-center" action="index.html" method="post">
-                  <div class="form-group text-center">
-                    <label  for="zip"></label>
-                    <input class="form-control input-lg " id="zip" type="zip" name="" value="" placeholder="Zip Code">
-                    <button type="submit" name="button" class="btn btn-primary btn-lg">Find An Event</button>
-                    <div id="textresults" class="text-center "></div>
-                  </div>
-                </form>
                 <div id="signupform ">
                   <div id="button-to-form" class="text-center hidden">
                     <h4>Sign up to stay up to date on town halls in your area</h4>

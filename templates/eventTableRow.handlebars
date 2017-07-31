@@ -4,14 +4,15 @@
   data-content="{{#if Notes}}{{Notes}}{{/if}}{{#unless Notes}}There are no notes for this event.{{/unless}}">
   <span class="member">
     {{#if Member}}
-    <h4 class="event-name" data-value="{{Member}} ({{Party}}) {{State}}, {{District}}">
+    <a href="event.html?eid={{eventId}}" target="_self"><h4 class="event-name" data-value="{{Member}} ({{Party}}) {{State}}, {{District}}">
     {{Member}}
       <small>({{Party}})  {{State}},   {{District}}
       </small>
     </h4>
+    </a>
     {{/if}}
     {{#unless Member}}
-    <h4 class="event-name" data-value="{{eventName}}">{{eventName}}</h4>
+    <a href="event.html?eid={{eventId}}" target="_self"><h4 class="event-name" data-value="{{eventName}}">{{eventName}}</h4></a>
     {{/unless}}
  <span class="badge badge-default badge-pill pull-right badge-rsvpButton" style="margin-left: 20px; background-color: #ff4741;">RSVP</span>
  <a href="event.html?eid={{eventId}}" target="_self"><span class="badge badge-default badge-pill pull-right badge-details" style="margin-left: 20px;" data-eid="{{eventId}}">Details</span></a>

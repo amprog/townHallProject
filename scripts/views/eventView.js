@@ -19,6 +19,7 @@
   eventHandler.resetHome = function () {
     $('[data-toggle="popover"]').popover('hide');
     $('.header-small').hide();
+    $('.main-event-table').show();
     $('.header-large').fadeIn();
     $('#look-up input').val('');
     $('#representativeCards section').empty();
@@ -28,7 +29,7 @@
     $('#nearest').removeClass('nearest-with-results');
     $('#button-to-form').hide();
     $('.spacer').show();
-    $('#look-up').appendTo($('.right-panels'));
+    $('#look-up').appendTo($('.container-left'));
     TownHall.isCurrentContext = false;
     TownHall.currentContext = [];
     TownHall.zipQuery = '';
@@ -192,7 +193,7 @@
     $('.form-text-results').addClass('text-center');
     $('.left-panels').addClass('left-panels-border');
     $('#nearest').addClass('nearest-with-results');
-    $('#look-up').appendTo($('.left-panels'));
+    $('#look-up').appendTo($('.container-left'));
     $('#button-to-form').removeClass('hidden');
     $('#button-to-form').fadeIn();
     $('.spacer').hide();
@@ -225,7 +226,7 @@
       var townHall = events[0];
       var townHalls = [townHall];
       recenterMap(townHalls, zipQuery);
-      eventHandler.renderTableWithArray(events);
+      //eventHandler.renderTableWithArray(events);
       $text.html('There are no events within 75 miles of your zip, the closest one is ' + townHall.dist + ' miles away. <br>' + info);
       $results.append($text);
       eventHandler.renderPanels(townHall, $parent);
@@ -241,8 +242,9 @@
         $('.header-with-results .results').addClass('multipleResults');
         $text.html('There are ' + nearest.length + ' upcoming events within 75 miles of you. <br>' +info);
       }
-      $results.append($text);
-      eventHandler.renderTableWithArray(nearest);
+      //$results.append($text);
+      //eventHandler.renderTableWithArray(nearest);
+      $('.main-event-table').hide();
       nearest.forEach(function(ele){
         eventHandler.renderPanels(ele, $parent);
       });
@@ -279,7 +281,7 @@
     setupTypeaheads();
     $('.filter').on('click', 'a', eventHandler.filterTable);
     $('#filter-info').on('click', 'button.btn', eventHandler.removeFilter);
-    // eventHandler.resetFilters();
+    eventHandler.resetFilters();
     // eventHandler.addFilter('meetingType', 'Town Hall');
     // eventHandler.addFilter('meetingType', 'Resistance Event');
 
