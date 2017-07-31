@@ -5,12 +5,33 @@
   // object to hold the front end view functions
   var eventHandler = {};
 
-  // Renders the page in response to lookup
+  function getUrlParameter(search_parameter) {
+    var page_URL = decodeURIComponent(window.location.search.substring(1)),
+      sURLVariables = page_URL.split('&'),
+      search_parametereter_name,
+      i;
+
+    for (i = 0; i < sURLVariables.length; i++) {
+      search_parametereter_name = sURLVariables[i].split('=');
+
+      if (search_parametereter_name[0] === search_parameter) {
+        return search_parametereter_name[1] === undefined ? true : search_parametereter_name[1];
+      }
+    }
+  }
+
+
+    // Renders the page in response to lookup
   eventHandler.lookup = function (e) {
     e.preventDefault();
-    var zip = $('#look-up input').val();
+    var zip = '';
+    if(getUrlParameter('zip')) {
+      zip = getUrlParameter('zip')
+    } else {
+      zip = $('#look-up input').val();
+    }
     if (zip) {
-      TownHall.lookupZip($('#look-up input').val());
+      TownHall.lookupZip(zip);
       eventHandler.resetFilters();
     }
   };

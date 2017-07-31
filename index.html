@@ -153,11 +153,13 @@
           <section class=" container container-fluid container-left">
             <form id="look-up" class="form-inline text-center" action="index.html" method="post">
               <div class="form-group text-center">
+                <div style="display: block;">
                 <label  for="zip"></label>
                 <input class="form-control input-lg " id="zip" type="zip" name="" value="" placeholder="Zip Code">
 
-                <button type="submit" name="button" class="btn btn-primary btn-lg">Find ansdfsdfsdf event</button>
-                <div id="header-textresults" class="text-center "></div>
+                <button type="submit" id="main-sub-button" name="button" class="btn btn-primary btn-lg">Find an event</button>
+                </div>
+                <div style="display: block; width: 63%; vertical-align: text-bottom;" id="header-textresults" class="text-center "></div>
               </div>
             </form>
           </section>
@@ -178,7 +180,7 @@
                 <div class="col-md-6 right-panels">
                   <div class="spacer">
                   </div>
-                  <div id="signupform ">
+                  <div id="signupform " style="display: block; position: relative; top: 125px; left: -50%;">
                     <div id="button-to-form" class="text-center hidden">
                       <h4>Sign up to stay up to date on town halls in your area</h4>
                         <a href="#join" data-toggle="tab" class="btn btn-lg btn-white"><strong>Join Us</strong></a>
@@ -622,5 +624,32 @@
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDuaGkL_a8gphhuRKhh4dOl-ISVC22HCpQ&callback=initMap&libraries=visualization,geometry"></script>
       <script src="scripts/views/resource-list.js"></script>
       <script src="scripts/views/rsvp.js"></script>
+      <script>
+          $(document).ready(function(){
+              function getUrlParameter(search_parameter) {
+                  var page_URL = decodeURIComponent(window.location.search.substring(1)),
+                      sURLVariables = page_URL.split('&'),
+                      search_parametereter_name,
+                      i;
+
+                  for (i = 0; i < sURLVariables.length; i++) {
+                      search_parametereter_name = sURLVariables[i].split('=');
+
+                      if (search_parametereter_name[0] === search_parameter) {
+                          return search_parametereter_name[1] === undefined ? true : search_parametereter_name[1];
+                      }
+                  }
+              }
+
+              var zipAuto = getUrlParameter('zip');
+
+              if(zipAuto) {
+                  //alert(zipAuto);
+                  $('button#main-sub-button').click();
+              }
+
+          })
+      </script>
+
     </div></body>
 </html>

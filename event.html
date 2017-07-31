@@ -141,7 +141,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a href="../index.html" class="navbar-brand hash-link" id="brand-icon"><img src="https://resistancenearme.org/Images/RNM_logo_on_white.png" alt="" height="100%" width="auto" style="width: auto!important; filter: grayscale(85%);"></a>
+          <a href="../index.html" class="navbar-brand hash-link" id="brand-icon"><img src="https://resistancenearme.org/Images/RNM_logo_yellow_small.png" alt="" height="100%" width="auto" style="width: auto!important;"></a>
         </div>
         <div class="collapse navbar-collapse" id="main-nav">
           <ul class="nav navbar-nav navbar-left" roll="tablists">
@@ -160,165 +160,53 @@
       </div>
     </nav>
     <div class="tab-content">
-<!--
-      <div role="tabpanel" class="tab-pane page active" id="home">
-        <header class="site-header clearfix">
-           <section class=" container container-fluid">
-             <div class="row">
-               <div class="col-md-6 left-panels">
-                  <div  class=" text-left site-header clearfix displayoff ">
-                    <div class="form-text-results col-md-12">
-                      <div class="text-toggle header-large">
-                        <img src="https://resistancenearme.org/Images/RNM_logo_big.png" alt="">
-                      </div>
-                      <div class="text-toggle header-small hidden ">
-                        &lt;!&ndash; <img src="https://resistancenearme.org/Images/THP_logo_inverse_simple.png" alt=""> &ndash;&gt;
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6 right-panels">
-                  <div class="spacer">
-                  </div>
-                  <form id="look-up" class="form-inline text-center" action="index.html" method="post">
-                    <div class="form-group text-center">
-                      <label  for="zip"></label>
-                      <input class="form-control input-lg " id="zip" type="zip" name="" value="" placeholder="Zip Code">
-                      <button type="submit" name="button" class="btn btn-primary btn-lg">Find An Event</button>
-                      <div id="textresults" class="text-center "></div>
-                    </div>
-                  </form>
-                  <div id="signupform ">
-                    <div id="button-to-form" class="text-center hidden">
-                      <h4>Sign up to stay up to date on town halls in your area</h4>
-                        <a href="#join" data-toggle="tab" class="btn btn-lg btn-white"><strong>Join Us</strong></a>
-                    </div>
-                  </div>
-                </div>
-               <div class="col-md-12" style="text-align: left; padding-left: 6rem;">
-                 <p id="partnership-text" style="width: 95%;">
-                   In partnership with Town Hall Project, Resistance Near Me is a hub for progressive local
-                   #resist actions, designed for you to find any public event, rally, town hall, protest,
-                   and more, near you, as well as the information you need to contact your member of Congress.
-                   It's never been more important to raise our voices to resist Trump’s harmful agenda and the
-                   elected representatives who aren't speaking for us.&lt;!&ndash; To take further action during April recess,
-                   check out our <a href="https://www.resistanceinyourpocket.com/index.html" target="_blank">recess pocket guide</a> .&ndash;&gt;
-                 </p>
-               </div>
-             </div>
-            </section>
-        </header>
-        <div class="container-fluid">
-          <div class="row map-large">
-            <div id="map"></div>
-          </div>
-        </div>
-        <div class="header-with-results">
-          <section class="container container-fluid">
-            <div class="row">
-              <div class="col-md-6 no-padding ">
-                   <section class="results">
-                     <div id="nearest" class="flexcroll"></div>
-                   </section>
-               </div>
-               <div class="col-md-6 map-small no-padding">
-               </div>
-            </div>
-           </section>
-        </div>
-        &lt;!&ndash; Cards showing representatives and their contact info &ndash;&gt;
-        <div id="representativeCards">
-          <section class="container container-fluid"></section>
-        </div>
-        <section class="scroll-to-form text-center">
-            <p>
-              <a href="#events-table" class="scroll-button btn btn-white btn-lg">
-                <i class="fa fa-chevron-down fa-2x" aria-hidden="true"></i>
-              </a>
-            </p>
-        </section>
-        <a name="events-table" id="events-table"></a>
-        <section class=" container container-fluid">
-          <h2 class="text-primary table-title text-center">Upcoming Events</h2>
-          <div class="row">
-              <small>
-                <ul class="list-unstyled container">
-                  <li><span class="text-secondary">Resistance Event</span><span> - A public rally, protest, or march that doesn't necessarily include a member of Congress</span></li>
-                  <li><span class="text-secondary">Town Hall</span><span> - A forum where members of Congress give updates on the current affairs of Congress and answer questions from constituents</span></li>
-                  <li><span class="text-secondary">Office Hours </span><span> - Serves the same purpose as a Town Hall, however Elected Officials are not always expected to attend	</span></li>
-                  <li><span class="text-secondary">Ticketed Event</span><span> - Oftentimes county party events, local fundraisers, or campaign functions. There may be a fee for admission.</span></li>
-                  <li><span class="text-secondary">TeleTown Hall Meeting </span><span>	- A town hall conducted by conference call.</span></li>
-                  <li><span class="text-secondary">DC Event</span><span>	- Event held in the MOC's DC Office.</span></li>
-                  <li><span class="text-secondary">Coffee</span><span> - Usually a small regular meeting with constituents in Washington D.C. while Congress is in session.</span></li>
-                </ul>
-              </small>
-          </div>
-          <div>
-            <ul id="all-events-table" class="list-group">
-              <li class="list-group-item list-group-heading">
-                <nav class="navbar navbar-default navbar-static-top ">
-                  <ul class="nav navbar-nav navbar-left" id="filter-info">
-                    <li><span id="current-state" data-current=0 data-total=0></span></li>
-                  </ul>
-                  <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Member <span class="caret"></span></a>
-                      <ul class="dropdown-menu">
-                        <li class="downdown-title">Search by member of Congress</li>
-                        <li role="separator" class="divider"></li>
-                        <li><input id="memberTypeahead" type="text" class="form-control dropdown-item filter" data-provide="typeahead" placeholder="Search by member" data-filter="Member" autocomplete="off"></li>
-                      </ul>
-                    </li>
-                    <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Party <span class="caret"></span></a>
-                      <ul class="dropdown-menu filter">
-                        <li class="downdown-title">Filtery by party</li>
-                        <li role="separator" class="divider"></li>
-                        <li><a data-filter="Party" id="Democratic" class="dropdown-item" href="#">Democratic</a></li>
-                        <li><a data-filter="Party" id="Republican" class="dropdown-item" href="#">Republican</a></li>
-                        <li><a data-filter="Party" id="Independent" class="dropdown-item" href="#">Independent</a>
-                      </ul>
-                    </li>
-                    <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">State <span class="caret"></span></a>
-                      <ul class="dropdown-menu">
-                        <li class="downdown-title">Search by State</li>
-                        <li role="separator" class="divider"></li>
-                        <li><input id="stateTypeahead" type="text" class="form-control dropdown-item filter" data-provide="typeahead" placeholder="Search by state" data-filter="State" autocomplete="off"></li>
-                      </ul>
-                    </li>
-                    <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Event Type <span class="caret"></span></a>
-                      <ul class="dropdown-menu filter">
-                        <li class="downdown-title">Filter by Event Type</li>
-                        <li role="separator" class="divider"></li>
-                        <li><a data-filter="meetingType" id="Resistance Event" class="dropdown-item" href="#">Resistance Event</a></li>
-                        <li><a data-filter="meetingType" id="Rally" class="dropdown-item" href="#">Rally</a></li>
-                        <li><a data-filter="meetingType" id="Town Hall" class="dropdown-item" href="#">Town Hall</a></li>
-                        <li><a data-filter="meetingType" id="Office Hours" class="dropdown-item" href="#">Office Hours</a></li>
-                        <li><a data-filter="meetingType" id="Ticketed Event" class="dropdown-item" href="#">Ticketed Event</a></li>
-                        <li><a data-filter="meetingType" id="Tele-Town Hall" class="dropdown-item" href="#">Tele-Town Hall</a></li>
-                        <li><a data-filter="meetingType" id="Empty Chair Town Hall" class="dropdown-item" href="#">Empty Chair Town Hall</a></li>
-                      </ul>
-                    </li>
-                    <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sort <span class="caret"></span></a>
-                      <ul class="dropdown-menu sort">
-                        <li class="downdown-title">Sort Table</li>
-                        <li role="separator" class="divider"></li>
-                        <li><a data-filter="dateObj" id="byDate" class="dropdown-item" href="#">By Date</a></li>
-                        <li><a data-filter="State" id="byState" class="dropdown-item" href="#">By State</a></li>
-                      </ul>
-                    </li>
-                  </ul>
-                </nav>
-              </li> &lt;!&ndash; end header&ndash;&gt;
-            </ul>&lt;!&ndash;end table&ndash;&gt;
-          </div>
-        </section>
-      </div>
--->
       <div role="tabpanel" class="tab-pane page active" id="events">
+          <header class="site-header clearfix" style="height: 200px;">
+              <section class=" container container-fluid container-left" style="background: none;">
+                  <form id="look-up" class="form-inline text-center" action="index.html" method="post" style="margin: 10% auto auto 8rem;">
+                      <div class="form-group text-center" style="width: 650px;">
+                          <div style="display: block;">
+                              <label  for="zip"></label>
+                              <input class="form-control input-lg " id="zip" type="zip" name="" value="" placeholder="Zip Code">
+
+                              <button name="button" id="main-sub-button" class="btn btn-primary btn-lg" style="position: relative; top: -50px; left: 235px"><a href="index.html" target="_self" style="color: #333333;">Find an event</a></button>
+                          </div>
+                          <div style="display: block; width: 63%; vertical-align: text-bottom;" id="header-textresults" class="text-center "></div>
+                      </div>
+                  </form>
+              </section>
+              <section class=" container container-fluid container-right" style="background: none;">
+                  <div class="row">
+                      <div class="col-md-6 left-panels">
+                          <div  class=" text-left site-header clearfix displayoff ">
+                              <div class="form-text-results col-md-12">
+                                  <div class="text-toggle header-large">
+<!--
+                                      <img class="header-logo" src="Images/RNM_logo_big.png" alt="Resistance Near Me Logo" width="400" height="auto">
+-->
+                                  </div>
+                                  <div class="text-toggle header-small hidden ">
+                                      <!-- <img src="Images/THP_logo_inverse_simple.png" alt=""> -->
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-md-6 right-panels">
+                          <div class="spacer">
+                          </div>
+                          <div id="signupform " style="display: block; position: relative; top: 125px; left: -50%;">
+                              <div id="button-to-form" class="text-center hidden">
+                                  <h4>Sign up to stay up to date on town halls in your area</h4>
+                                  <a href="#join" data-toggle="tab" class="btn btn-lg btn-white"><strong>Join Us</strong></a>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-md-12" style="text-align: left; padding-left: 6rem;">
+                      </div>
+                  </div>
+              </section>
+          </header>
+<!--
         <header class="site-header clearfix">
           <section class=" container container-fluid">
             <div class="row">
@@ -329,7 +217,6 @@
                       <img src="https://resistancenearme.org/Images/RNM_logo_big.png" alt="">
                     </div>
                     <div class="text-toggle header-small hidden ">
-                      <!-- <img src="https://resistancenearme.org/Images/THP_logo_inverse_simple.png" alt=""> -->
                     </div>
                   </div>
                 </div>
@@ -337,16 +224,6 @@
               <div class="col-md-6 right-panels">
                 <div class="spacer">
                 </div>
-<!--
-                <form id="look-up" class="form-inline text-center" action="index.html" method="post">
-                  <div class="form-group text-center">
-                    <label  for="zip"></label>
-                    <input class="form-control input-lg " id="zip" type="zip" name="" value="" placeholder="Zip Code">
-                    <button type="submit" name="button" class="btn btn-primary btn-lg">Find An Event</button>
-                    <div id="textresults" class="text-center "></div>
-                  </div>
-                </form>
--->
                 <div id="signupform ">
                   <div id="button-to-form" class="text-center hidden">
                     <h4>Sign up to stay up to date on town halls in your area</h4>
@@ -360,13 +237,14 @@
                   #resist actions, designed for you to find any public event, rally, town hall, protest,
                   and more, near you, as well as the information you need to contact your member of Congress.
                   It's never been more important to raise our voices to resist Trump’s harmful agenda and the
-                  elected representatives who aren't speaking for us. <!--To take further action during April recess,
-                  check out our <a href="https://www.resistanceinyourpocket.com/index.html" target="_blank">recess pocket guide</a>.-->
+                  elected representatives who aren't speaking for us. &lt;!&ndash;To take further action during April recess,
+                  check out our <a href="https://www.resistanceinyourpocket.com/index.html" target="_blank">recess pocket guide</a>.&ndash;&gt;
                 </p>
               </div>
             </div>
           </section>
         </header>
+-->
         <section class="container container-fluid">
           <div id='can-form-area-stay-up-to-date-on-our-work-2'  class=" col-md-6 col-md-offset-3" style="margin-left: 0!important;">
             <div class="can_embed v2  form">
@@ -377,100 +255,12 @@
 
 
 
-<!--
-                  <h4 style="font-weight: bold;">
-
-                    Events details
-                  </h4>
-
--->
 
                   <div id="event-section">
                     <section class=" container container-fluid">
                       <h2 class="text-primary table-title text-center">Event Details</h2>
                       <div class="row" id="event-details">
-<!--
-                        <small>
-                          <ul class="list-unstyled container">
-                            <li><span class="text-secondary">Resistance Event</span><span> - A public rally, protest, or march that doesn't necessarily include a member of Congress</span></li>
-                            <li><span class="text-secondary">Town Hall</span><span> - A forum where members of Congress give updates on the current affairs of Congress and answer questions from constituents</span></li>
-                            <li><span class="text-secondary">Office Hours </span><span> - Serves the same purpose as a Town Hall, however Elected Officials are not always expected to attend	</span></li>
-                            <li><span class="text-secondary">Ticketed Event</span><span> - Oftentimes county party events, local fundraisers, or campaign functions. There may be a fee for admission.</span></li>
-                            <li><span class="text-secondary">TeleTown Hall Meeting </span><span>	- A town hall conducted by conference call.</span></li>
-                            <li><span class="text-secondary">DC Event</span><span>	- Event held in the MOC's DC Office.</span></li>
-                            <li><span class="text-secondary">Coffee</span><span> - Usually a small regular meeting with constituents in Washington D.C. while Congress is in session.</span></li>
-                          </ul>
-                        </small>
--->
                       </div>
-<!--
-                      <div>
-                        <ul id="all-events-table" class="list-group">
-                          <li class="list-group-item list-group-heading">
-                            <nav class="navbar navbar-default navbar-static-top ">
-                              <ul class="nav navbar-nav navbar-left" id="filter-info">
-&lt;!&ndash;
-                                <li><span id="current-state" data-current=0 data-total=0></span></li>
-&ndash;&gt;
-                              </ul>
-&lt;!&ndash;
-                              <ul class="nav navbar-nav navbar-right">
-                                <li class="dropdown">
-                                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Member <span class="caret"></span></a>
-                                  <ul class="dropdown-menu">
-                                    <li class="downdown-title">Search by member of Congress</li>
-                                    <li role="separator" class="divider"></li>
-                                    <li><input id="memberTypeahead" type="text" class="form-control dropdown-item filter" data-provide="typeahead" placeholder="Search by member" data-filter="Member" autocomplete="off"></li>
-                                  </ul>
-                                </li>
-                                <li class="dropdown">
-                                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Party <span class="caret"></span></a>
-                                  <ul class="dropdown-menu filter">
-                                    <li class="downdown-title">Filtery by party</li>
-                                    <li role="separator" class="divider"></li>
-                                    <li><a data-filter="Party" id="Democratic" class="dropdown-item" href="#">Democratic</a></li>
-                                    <li><a data-filter="Party" id="Republican" class="dropdown-item" href="#">Republican</a></li>
-                                    <li><a data-filter="Party" id="Independent" class="dropdown-item" href="#">Independent</a>
-                                  </ul>
-                                </li>
-                                <li class="dropdown">
-                                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">State <span class="caret"></span></a>
-                                  <ul class="dropdown-menu">
-                                    <li class="downdown-title">Search by State</li>
-                                    <li role="separator" class="divider"></li>
-                                    <li><input id="stateTypeahead" type="text" class="form-control dropdown-item filter" data-provide="typeahead" placeholder="Search by state" data-filter="State" autocomplete="off"></li>
-                                  </ul>
-                                </li>
-                                <li class="dropdown">
-                                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Event Type <span class="caret"></span></a>
-                                  <ul class="dropdown-menu filter">
-                                    <li class="downdown-title">Filter by Event Type</li>
-                                    <li role="separator" class="divider"></li>
-                                    <li><a data-filter="meetingType" id="Resistance Event" class="dropdown-item" href="#">Resistance Event</a></li>
-                                    <li><a data-filter="meetingType" id="Rally" class="dropdown-item" href="#">Rally</a></li>
-                                    <li><a data-filter="meetingType" id="Town Hall" class="dropdown-item" href="#">Town Hall</a></li>
-                                    <li><a data-filter="meetingType" id="Office Hours" class="dropdown-item" href="#">Office Hours</a></li>
-                                    <li><a data-filter="meetingType" id="Ticketed Event" class="dropdown-item" href="#">Ticketed Event</a></li>
-                                    <li><a data-filter="meetingType" id="Tele-Town Hall" class="dropdown-item" href="#">Tele-Town Hall</a></li>
-                                    <li><a data-filter="meetingType" id="Empty Chair Town Hall" class="dropdown-item" href="#">Empty Chair Town Hall</a></li>
-                                  </ul>
-                                </li>
-                                <li class="dropdown">
-                                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sort <span class="caret"></span></a>
-                                  <ul class="dropdown-menu sort">
-                                    <li class="downdown-title">Sort Table</li>
-                                    <li role="separator" class="divider"></li>
-                                    <li><a data-filter="dateObj" id="byDate" class="dropdown-item" href="#">By Date</a></li>
-                                    <li><a data-filter="State" id="byState" class="dropdown-item" href="#">By State</a></li>
-                                  </ul>
-                                </li>
-                              </ul>
-&ndash;&gt;
-                            </nav>
-                          </li> &lt;!&ndash; end header&ndash;&gt;
-                        </ul>&lt;!&ndash;end table&ndash;&gt;
-                      </div>
--->
                     </section>
                   </div>
 
@@ -488,6 +278,266 @@
         <div class="banner" id="cover">
         </div>
       </div>
+        <div role="tabpanel" class="tab-pane " id="submit">
+            <div class='embed-container'>
+                <iframe src='https://goo.gl/forms/1FKzwY43W2hLi43i2' style=" border-width:0 " width="800" height="600" frameborder="0" ></iframe></div>
+        </div>
+        <div role="tabpanel" class="tab-pane page" id="about">
+            <header>
+                <section class="container container-fluid quote-header">
+                    <blockquote class ="col-sm-6 col-sm-offset-3">
+                        <p class="text-white">"It falls to each of us to be those anxious, jealous guardians of our democracy. Embrace the joyous task we have been given to continually try to improve this great nation of ours because, for all our outward differences, we in fact all share the same proud type, the most important office in a democracy, <span class="text-secondary">citizen</span>."</p>
+                        <footer class="text-success">President Obama, <cite title="Source Title">Farewell Address</cite></footer>
+                    </blockquote>
+                </section>
+
+            </header>
+            <section class="container">
+                <article class="center-block about">
+                    <h2 class="text-secondary-dark">About Town Hall Project</h2>
+                    <p class="lead">Town Hall Project empowers constituents across the country to have face-to-face conversations with their elected representatives. We are campaign veterans and first time volunteers. We come from a diversity of backgrounds and live across the country. We share progressive values and believe strongly in civic engagement. We research every district and state for public events with members of Congress. Then we share our findings to promote participation in the democratic process.</p>
+                    <p class="lead">This movement is diverse, open source, and powered by citizens. We are proud to be a part of it.</p>
+                    <p class="text-primary"><strong>Show Up. Speak Out.</strong></p>
+                </article>
+                <article class="row">
+                    <div class="col-sm-4">
+                        <h3>Why Town Halls</h3>
+                        <p>There is no better way to influence your representatives than in-person conversations. Town halls are a longstanding American tradition--where our elected representatives must listen and respond to the concerns of their constituents. Remember: you are their boss.
+                        </p>
+                        <p>We believe every citizen, no matter the party of their members of Congress, should have the opportunity to speak with his or her representatives.</p>
+
+                        <p>
+                            You have more power than you think. Town halls are one of the most effective ways to use it.
+                        </p>
+                    </div>
+                    <div class="col-sm-4">
+                        <h3>About the Events</h3>
+                        <p>Our project is currently focused on federal elected officials. We strongly believe that state legislatures deserve attention and citizen engagement, but at the moment these events are outside our current mission.
+                        <ul>Our event listing includes:
+                            <li>Town halls</li>
+                            <li>Other public events with members of Congress in their district/state</li>
+                            <li>Ticketed events in the district/state</li>
+                            <li>Staff office hours</li>
+                            <li>Opportunities in Washington, D.C. to speak with your representative</li>
+                        </ul>
+                        <ul>We do not currently include:
+                            <li>Fundraisers outside the district/state</li>
+                            <li>Events where it would be inappropriate to ask policy questions of your representative (i.e. a funeral)</li>
+                            <li>Campaign events where the member will not take questions</li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-4">
+                        <h3>What to expect</h3>
+                        <p>The most powerful thing you can do, as a constituent, is <strong>ask an earnest, pressing question on an issue close to you.</strong> Your personal story is incredibly valuable. It’s precisely how sometimes dry policy is connected with the lives of real people. It’s not always easy to speak up, but these times call for courage in all of us. Take the mic and tell your representative why she or he needs to act in your best interest.
+                        <p>The Town Hall Project strongly encourages you to only attend and ask questions of your own representatives. Remember that any town hall has limited time, and a question you take is one less question for a constituent.</p>
+                        <p>For more, we recommend the valuable <a href="https://www.indivisibleguide.com/">Indivisible Guide</a>, which goes into detail on town hall best practices and other ways to hold your elected representatives accountable.</p>
+                    </div>
+
+                </article>
+            </section>
+            <div class="banner" id="hand-raised">
+            </div>
+            <section class="container">
+                <article class="row">
+                    <div class="col-sm-5 col-offset-1">
+                        <h3>Can I send you town halls that I find?</h3>
+                        <p>Yes! Please send town hall or any other congressional events to us  <a href="#submit">here</a>. Please include as much detail as you can, including a date, time, and link or other source of the event information. </p>
+                    </div>
+                    <div class="col-sm-5 col-sm-offset-2">
+                        <h3>What if my representatives have no public events scheduled?</h3>
+                        <p>Call their <a href="https://www.govtrack.us/congress/members">district offices</a> and let them know you expect them to hold public events with their constituents. To have even more impact, join with other citizens in your district or state and organize group efforts. Visit the district office together, deliver petitions, inform your local press, or even hold an “Empty Chair” town hall and invite your member of Congress to fill that chair.</p>
+                    </div>
+                </article>
+                <article class="row text-center">
+                    <h3>Get connected locally!</h3>
+                    <p><a href="mailto:info@resistancenearme.org">Email us </a>and one of our organizers will connect you with groups in your area.</p>
+                </article>
+                <div class="col-sm-4">
+                </div>
+            </section>
+            <section class="container">
+                <div class="row">
+                    <div class="col-sm-12" id="disclaimer">
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div role="tabpanel" class="tab-pane " id="join">
+            <header>
+                <section class="container container-fluid">
+                    <div class="col-md-6 col-md-offset-3">
+                        <p class="lead">Sign up now for personalized event updates for your congressional district and state and stay up to date on our work! </p><p>We will email you town hall events with your members of Congress, as well as send the latest news on upcoming debates in Congress and updates on our project.</p>
+                    </div>
+                </section>
+            </header>
+            <section class="container container-fluid">
+                <div id='can-form-area-stay-up-to-date-on-our-work-2'  class=" col-md-6 col-md-offset-3">
+                    <div class="can_embed v2  form">
+
+
+                        <div id="can_embed_form" class="can_float">
+                            <div id="can_embed_form_inner">
+
+
+
+                                <h4>
+
+                                    Sign up to receive emails
+                                </h4>
+
+
+                                <form accept-charset="UTF-8" action="https://s785.t.eloqua.com/e/f2" class="new_answer" id="new_answer" method="post" target="_blank" novalidate="novalidate">
+                                    <div id="form_col1">
+                                        <input name="elqFormName" type="hidden" value="com_nwl_c4e_pr_rnm_subscribe">
+                                        <input name="elqSiteID" type="hidden" value="785">
+                                        <input id="elqURL" name="elqURL" type="hidden" value="https://s785.t.eloqua.com/e/f2">
+                                        <input name="retURL" type="hidden" value="https://www.resistancenearme.org/thankyou.html/">
+
+                                        <input id="form-first_name" name="FirstName" placeholder="First Name" size="35" type="text">
+                                        <input id="form-last_name" name="LastName" placeholder="Last Name" size="35" type="text">
+
+                                        <input class="required" id="form-email" name="EmailAddress" placeholder="Email *" size="35" type="email" value="">
+                                        <input class="required" id="form-zip_code" name="ZipCode" placeholder="Zip/Postal Code *" size="35" type="text">
+
+
+                                        <!-- Text input-->
+                                        <li class="control-group">
+                                            <label class="control-label" for="phone"></label>
+                                            <input id="phone" name="Phone" type="text" placeholder="Phone" class="input-xlarge ">
+                                        </li>
+
+                                        <!-- Multiple Checkboxes -->
+                                        <li class="control-group checkbox_group_wrap">
+                                            <label class="control-label check_radio_label"></label>
+                                            <span class="controls check_radio_field">
+    <label class="checkbox">
+
+		<input type="checkbox" name="OptIn" value="1" class=" checkbox_group" checked>
+      Opt in to updates from the Center for American Progress Action Fund. <a href="https://www.americanprogressaction.org/about/c4-privacy-policy/" target="_blank">Privacy Policy</a>.
+
+    </label>
+
+  </span>
+                                        </li>
+
+                                        <!-- Form Name -->
+
+
+
+                                    </div>
+                                    <div id="form_col2">
+                                        <!--
+                                        <textarea cols="40" id="form-comments" name="answer[message_to_target]" placeholder="Your comment" rows="20">
+                              </textarea>
+                                      -->
+
+
+                                        <input class="" name="commit" type="submit" value="Sign me up">
+                                        <img src="https://actionnetwork.org/images/spinner8.png" class="ajax-loading" alt="Loading">
+
+                                    </div>
+                                    <div class="clear"></div>
+                                </form>
+
+
+
+
+                                <div id="logo_wrap">
+                                    <a href="https://actionnetwork.org">
+                                        <img src="https://actionnetwork.org/images/logo_sm.png" alt="Action Network">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>          </section>
+            <div class="banner" id="cover">
+            </div>
+        </div>
+        <div role="tabpanel" class="tab-pane " id="resources">
+            <header class="site-header clearfix">
+                <section class=" container container-fluid container-left">
+                    <form id="look-up" class="form-inline text-center" action="index.html" method="post">
+                        <div class="form-group text-center">
+                            <label  for="zip"></label>
+                            <input class="form-control input-lg " id="zip" type="zip" name="" value="" placeholder="Zip Code">
+
+                            <button type="submit" name="button" class="btn btn-primary btn-lg">Find an event</button>
+                            <div id="home-textresults" class="text-center "></div>
+                        </div>
+                    </form>
+                </section>
+                <section class=" container container-fluid container-right">
+                    <div class="row">
+                        <div class="col-md-6 left-panels">
+                            <div  class=" text-left site-header clearfix displayoff ">
+                                <div class="form-text-results col-md-12">
+                                    <div class="text-toggle header-large">
+                                        <img src="Images/RNM_logo_big.png" alt="">
+                                    </div>
+                                    <div class="text-toggle header-small hidden ">
+                                        <!-- <img src="Images/THP_logo_inverse_simple.png" alt=""> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 right-panels">
+                            <div class="spacer">
+                            </div>
+                            <div class="signupform ">
+                                <div class="button-to-form" class="text-center hidden">
+                                    <h4>Sign up to stay up to date on town halls in your area</h4>
+                                    <a href="#join" data-toggle="tab" class="btn btn-lg btn-white"><strong>Join Us</strong></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12" style="text-align: left; padding-left: 6rem;">
+                            <p id="partnership-text" style="width: 95%;">
+                                In partnership with Town Hall Project, Resistance Near Me is a hub for progressive local
+                                #resist actions, designed for you to find any public event, rally, town hall, protest,
+                                and more, near you, as well as the information you need to contact your member of Congress.
+                                It's never been more important to raise our voices to resist Trump’s harmful agenda and the
+                                elected representatives who aren't speaking for us. <!--To take further action during April recess,
+                  check out our <a href="https://www.resistanceinyourpocket.com/index.html" target="_blank">recess pocket guide</a>.-->
+                            </p>
+                        </div>
+                    </div>
+                </section>
+            </header>
+            <section class="container container-fluid">
+                <div id='can-form-area-stay-up-to-date-on-our-work-2'  class=" col-md-6 col-md-offset-3" style="margin-left: 0!important;">
+                    <div class="can_embed v2  form">
+
+
+                        <div id="can_embed_form" class="can_float">
+                            <div id="can_embed_form_inner">
+
+
+
+                                <h4 style="font-weight: bold;">
+
+                                    Additional resources
+                                </h4>
+
+
+                                <div id="resource-section">
+
+                                </div>
+
+
+
+                                <div id="logo_wrap">
+                                    <a href="https://actionnetwork.org">
+                                        <img src="https://actionnetwork.org/images/logo_sm.png" alt="Action Network">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>          </section>
+            <div class="banner" id="cover">
+            </div>
+        </div>
     <footer class="footer">
       <div class="container text-center">
         <ul class="list-unstyled">
@@ -523,9 +573,26 @@
       <!-- Script Files -->
         <script type="text/javascript" src="https://addtocalendar.com/atc/1.5/atc.min.js"></script>
     <script src="scripts/models/event.js"></script>
+        <script src="scripts/views/eventView.js"></script>
     <script src="scripts/views/singleMapView.js"></script>
         <script src="scripts/views/singleEventView.js"></script>
       <script src="scripts/views/rsvp.js"></script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDuaGkL_a8gphhuRKhh4dOl-ISVC22HCpQ&libraries=visualization,geometry"></script>
+<script>
+    $(document).ready(function () {
 
+        $('#zip').keypress(function (e) {
+            if(e.which == 13) {
+                //e.preventDefault();
+                var zip = $('#zip').val();
+                $('#main-sub-button a').attr("href", "index.html?zip=" + zip).click();
+            }
+        })
+        $('#zip').focusout(function () {
+            var zip = $('#zip').val();
+            $('#main-sub-button a').attr("href", "index.html?zip=" + zip);
+        })
+    })
+</script>
     </div></body>
 </html>
