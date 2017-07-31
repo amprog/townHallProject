@@ -40,7 +40,7 @@
     $results.empty();
     //eventHandler.resetFilters();
     //eventHandler.addFilter('meetingType', 'Town Hall');
-    //TownHall.sortOn = 'State';
+    TownHall.sortOn = 'State';
     //eventHandler.renderTableWithArray(eventHandler.getFilterState());
     $('#partnership-text').show();
   };
@@ -275,7 +275,7 @@
     $('#save-event').on('submit', eventHandler.save);
     $('#look-up').on('submit', eventHandler.lookup);
     // $('#view-all').on('click', TownHall.viewAll);
-    // $('.sort').on('click', 'a', eventHandler.sortTable);
+    $('.sort').on('click', 'a', eventHandler.sortTable);
     setupTypeaheads();
     $('.filter').on('click', 'a', eventHandler.filterTable);
     $('#filter-info').on('click', 'button.btn', eventHandler.removeFilter);
