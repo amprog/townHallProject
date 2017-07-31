@@ -42,9 +42,9 @@
     $('.header-with-results .results').removeClass('multipleResults');
     $('.left-panels').removeClass('left-panels-border');
     $('#nearest').removeClass('nearest-with-results');
-    $('#button-to-form').hide();
+    $('#button-to-form').show();
     $('.spacer').show();
-    $('#look-up').appendTo($('.right-panels'));
+    $('#look-up').appendTo($('.container-left'));
     TownHall.isCurrentContext = false;
     TownHall.currentContext = [];
     TownHall.zipQuery = '';
@@ -227,7 +227,8 @@
 
   function init() {
     $('[data-toggle="popover"]').popover({html:true});
-    $('#button-to-form').hide();
+    $('#signupform').show();
+    $('#button-to-form').show();
     $('#save-event').on('submit', eventHandler.save);
     $('#look-up').on('submit', eventHandler.lookup);
     $('#view-all').on('click', TownHall.viewAll);
