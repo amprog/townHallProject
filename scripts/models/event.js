@@ -110,7 +110,7 @@
       });
       $('#partnership-text').hide();
     }).catch(function(error){
-      var $results = $('#textresults');
+      var $results = $('#header-textresults');
       console.log(error);
       $results.empty();
       var $text = $('<h4>');

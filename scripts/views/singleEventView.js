@@ -51,7 +51,7 @@
     $('#map').appendTo('.map-large');
     onResizeMap();
     var $parent = $('#nearest');
-    var $results = $('#textresults');
+    var $results = $('#header-textresults');
     $parent.empty();
     $results.empty();
     eventHandler.resetFilters();

@@ -36,7 +36,7 @@
     $('#map').appendTo('.map-large');
     onResizeMap();
     var $parent = $('#nearest');
-    var $results = $('#textresults');
+    var $results = $('#header-textresults');
     $parent.empty();
     $results.empty();
     //eventHandler.resetFilters();
@@ -92,7 +92,8 @@
     $currentState = $('#current-state');
     var total = parseInt($currentState.attr('data-total'));
     var cur = array.length;
-    var $results = $('#textresults');
+    //removed to allow error messages and event tally to appear beneath search form
+    //var $results = $('#header-textresults');
     if(array === TownHall.allTownHalls) {
       $results.detach();
     } else {
@@ -205,7 +206,7 @@
   eventHandler.resultsRouting = function (maxDist, events, zipQuery, representativePromise){
     var $zip = $('#look-up input').val();
     var $parent = $('#nearest');
-    var $results = $('#textresults');
+    var $results = $('#header-textresults');
     $parent.empty();
     $results.empty();
     $('.event-row').remove();
@@ -242,7 +243,7 @@
         $('.header-with-results .results').addClass('multipleResults');
         $text.html('There are ' + nearest.length + ' upcoming events within 75 miles of you. <br>' +info);
       }
-      //$results.append($text);
+      $results.append($text);
       //eventHandler.renderTableWithArray(nearest);
       $('.main-event-table').hide();
       nearest.forEach(function(ele){
