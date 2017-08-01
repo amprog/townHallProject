@@ -54,6 +54,7 @@
 -->
 
 
+<!--
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
               (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -64,7 +65,21 @@
       ga('send', 'pageview');
 
   </script>
-  <style>
+-->
+    <script>
+        window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+        ga('create', 'UA-246439-60', 'auto');
+        ga('require', 'eventTracker');
+        ga('require', 'maxScrollTracker');
+        ga('require', 'outboundFormTracker');
+        ga('require', 'outboundLinkTracker');
+        ga('require', 'socialWidgetTracker');
+        ga('send', 'pageview');
+    </script>
+    <script async src="https://www.google-analytics.com/analytics.js"></script>
+    <script async src="scripts/autotrack.js"></script>
+
+    <style>
     /*Overlay and popup styling*/
     #overlay {
       width: 100%;
