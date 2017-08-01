@@ -234,22 +234,22 @@
         </header>
 -->
         <section class="container container-fluid">
-          <div id='can-form-area-stay-up-to-date-on-our-work-2'  class=" col-md-6 col-md-offset-3" style="margin-left: 0!important;">
+          <div id='can-form-area-stay-up-to-date-on-our-work-2'  class=" col-md-12" style="margin-left: 0!important; padding-left: 0;">
             <div class="can_embed v2  form">
 
 
-              <div id="can_embed_form" class="can_float">
+              <div id="can_embed_form" class="can_float" style="padding: 20px 20px 20px 0;">
                 <div id="can_embed_form_inner903928343">
 
 
 
 
                   <div id="event-section">
-                    <section class=" container container-fluid">
+                    <section class=" container container-fluid" style="padding-left: 0;">
 <!--
                       <h2 class="text-primary table-title text-center">Event Details</h2>
 -->
-                      <div class="row" id="event-details" style="text-align: center;">
+                      <div class="row" id="event-details" style="text-align: center; margin-right: 0;">
                           <p style="margin-bottom: 6rem;">You're going to <strong><span id="event-name-placeholder"></span></strong>. Tell your friends!</p>
                           <p style="font-size: 20px">Share on</p>
                           <a id="tw-share" style="color: #000000" class="social-icons" href="http://twitter.com/intent/tweet?text=I%2Bjust%2Bsigned%2Bup%2Bfor%2Bupdates%2Bon%2B%2523resistance%2Bevents%2Bacross%2Bthe%2Bcountry.%2BFind%2Bevents%2Bnear%2Byou%2Bat%2BResistanceNearMe.com."><i class="fa fa-twitter-square fa-2x" aria-hidden="true"></i></a>
@@ -596,7 +596,7 @@
         if(eventName) {
             //alert(zipAuto);
             $('#event-name-placeholder').text(eventName);
-            $('#tw-share').attr("href", "http://twitter.com/intent/tweet?text=I%20just%20signed%20up%20for%20" + eventName + "%20%23Resist%20in%20your%20area%20at%20ResistanceNearMe.com.");
+            $('#tw-share').attr("href", "http://twitter.com/intent/tweet?text=I%20just%20signed%20up%20for%20" + eventName + ".%20%23Resist%20in%20your%20area%20at%20ResistanceNearMe.com.");
             $("meta[property='og\\:description']").attr("content", "I’m going to " + eventName + ". #Resist in your area at ResistanceNearMe.com.");
         }
 
