@@ -5,6 +5,7 @@ jQuery(document).ready(function($) {
           '<div class="pum-content popmake-content">' +
           '<div id="thanks" style="display: none"><p>Thank you for signing up for a Resistance Near Me event! Please check your email for a confirmation message. If you’re new to our database, you’ll also get an email from us asking you to opt-in to future messages. <strong>This is important – you must opt in to receive event updates or cancellation notices.</strong> Simply click on the “Yes, subscribe me” button, and you’ll be set.</p></div>' +
           '<form action="https://s785.t.eloqua.com/e/f2" method="post" id="main-form">' +
+              '<div id="rsvp-title" style="font-size: 2.5rem; margin: 0 auto 1.5rem 0;"><strong>RSVP</strong></div>' +
           '* E-mail:<input type="email" name="email" id="email" required>' +
           '* ZIP code:<input type="text" name="rsvp_zip" id="rsvp_zip" required>' +
           '<input type="hidden" name="rsvp_source" value="' + source + '">' +
