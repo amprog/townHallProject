@@ -252,8 +252,8 @@
                       <div class="row" id="event-details" style="text-align: center;">
                           <p style="margin-bottom: 6rem;">You're going to <strong><span id="event-name-placeholder"></span></strong>. Tell your friends!</p>
                           <p style="font-size: 20px">Share on</p>
-                          <a style="color: #000000" class="social-icons" href="http://twitter.com/intent/tweet?text=I%2Bjust%2Bsigned%2Bup%2Bfor%2Bupdates%2Bon%2B%2523resistance%2Bevents%2Bacross%2Bthe%2Bcountry.%2BFind%2Bevents%2Bnear%2Byou%2Bat%2BResistanceNearMe.com."><i class="fa fa-twitter-square fa-2x" aria-hidden="true"></i></a>
-                          <a style="color: #000000" class="social-icons" href="http://www.facebook.com/sharer.php?u=https%3A%2F%2Fresistancenearme.org"><i class="fa fa-facebook-square fa-2x" aria-hidden="true"></i></a>
+                          <a id="tw-share" style="color: #000000" class="social-icons" href="http://twitter.com/intent/tweet?text=I%2Bjust%2Bsigned%2Bup%2Bfor%2Bupdates%2Bon%2B%2523resistance%2Bevents%2Bacross%2Bthe%2Bcountry.%2BFind%2Bevents%2Bnear%2Byou%2Bat%2BResistanceNearMe.com."><i class="fa fa-twitter-square fa-2x" aria-hidden="true"></i></a>
+                          <a id="fb-share" style="color: #000000" class="social-icons" href="http://www.facebook.com/sharer.php?u=https%3A%2F%2Fresistancenearme.org"><i class="fa fa-facebook-square fa-2x" aria-hidden="true"></i></a>
                       </div>
                     </section>
                   </div>
@@ -596,6 +596,8 @@
         if(eventName) {
             //alert(zipAuto);
             $('#event-name-placeholder').text(eventName);
+            $('#tw-share').attr("href", "http://twitter.com/intent/tweet?text=I%20just%20signed%20up%20for%20" + eventName + "%20%23Resist%20in%20your%20area%20at%20ResistanceNearMe.com.");
+            $("meta[property='og\\:description']").attr("content", "I’m going to " + eventName + ". #Resist in your area at ResistanceNearMe.com.");
         }
 
         $('#zip').keypress(function (e) {
