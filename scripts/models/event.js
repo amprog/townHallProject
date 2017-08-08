@@ -103,9 +103,12 @@
         url: 'https://congress.api.sunlightfoundation.com/legislators/locate?zip=' + zip,
         dataType: 'jsonp'
       });
+      //alert('This is lat long ' + snapshot.val().LAT + "    " + snapshot.val().LNG);
       var zipQueryLoc = new google.maps.LatLng(snapshot.val().LAT, snapshot.val().LNG);
+      //alert(zipQueryLoc);
       TownHall.zipQuery = zipQueryLoc;
       TownHall.returnNearest(zipQueryLoc).then(function(sorted) {
+        //alert('This is lat long ' + JSON.stringify(representativePromise));
         eventHandler.render(sorted, zipQueryLoc, representativePromise);
       });
       $('#partnership-text').hide();
@@ -150,8 +153,9 @@
           locations.push(capEvent);
         });
         var sorted = locations.sort(function (a , b) {
-	        a.dist = google.maps.geometry.spherical.computeDistanceBetween(zipQueryLoc, new google.maps.LatLng(a.lat,a.lng));
-	        b.dist = google.maps.geometry.spherical.computeDistanceBetween(zipQueryLoc, new google.maps.LatLng(b.lat,b.lng));
+	        a.dist = google.maps.geometry.spherical.computeDistanceBetween(zipQueryLoc, new google.maps.LatLng(a.lat,a.lng))/1609.344;
+	        b.dist = google.maps.geometry.spherical.computeDistanceBetween(zipQueryLoc, new google.maps.LatLng(b.lat,b.lng))/1609.344;
+	        console.log("zipQueryLoc:" + zipQueryLoc + ' ' + a.lat + ' ' + a.lng + ' ' + a.dist);
 	        return a.dist <= b.dist ? -1 : 1;
   	    });
   	    return sorted;

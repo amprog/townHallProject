@@ -140,7 +140,7 @@
     // render table row
   eventHandler.renderTable = function (townhall, $tableid) {
     if (townhall.dist) {
-      townhall.dist = Math.round(townhall.dist/1609.344);
+      townhall.dist = Math.round(townhall.dist);
     }
     townhall.addressLink = 'https://www.google.com/maps?q=' + escape(townhall.address);
     var compiledTemplate = Handlebars.getTemplate('eventTableRow');

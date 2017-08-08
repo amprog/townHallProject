@@ -134,7 +134,7 @@
   // render table row
   eventHandler.renderTable = function (townhall, $tableid) {
     if (townhall.dist) {
-      townhall.dist = Math.round(townhall.dist/1609.344);
+      townhall.dist = Math.round(townhall.dist);
     }
     townhall.addressLink = 'https://www.google.com/maps?q=' + escape(townhall.address);
     var compiledTemplate = Handlebars.getTemplate('eventTableRow');
@@ -219,7 +219,7 @@
     $('#button-to-form').removeClass('hidden');
     $('#button-to-form').fadeIn();
     $('.spacer').hide();
-    maxDist = 120701;
+    maxDist = 75;
     eventHandler.resultsRouting(maxDist, events, zipQuery, representativePromise);
     addtocalendar.load();
   };
@@ -234,6 +234,7 @@
     var $text = $('<h4>');
     var nearest = events.reduce(function(acc, cur){
       if (cur.dist < maxDist) {
+        cur.dist = Math.round(cur.dist)
         acc.push(cur);
       }
       return acc;
