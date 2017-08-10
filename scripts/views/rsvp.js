@@ -21,6 +21,7 @@ jQuery(document).ready(function($) {
           '<input type="hidden" name="elqFormName" value="townhallregistrations">' +
           '<input type="hidden" name="elqSiteID" value="785">' +
           '<input type="submit" value="Send" id="popup-submit" class="btn">' +
+          '<div id="dialogue" style="display: inline-block; margin: 0.5rem 0 0 3rem;"></div>' +
           '</form>' +
           '</div>' +
           '<button type="button" class="pum-close popmake-close" aria-label="Close">X</button>' +
@@ -48,15 +49,20 @@ jQuery(document).ready(function($) {
         //alert("Please fill out all form fields.     " + $("#email").val() + "     " + $("#rsvp_zip").val());
       } else if($.trim($("#email").val()).length || $.trim($('#rsvp_zip').val()).length) {
         var formToSubmit = $("#main-form").serialize();
+        $('#dialogue').show().text('Submitting...');
         $.ajax({
           type: "POST",
           url: "https://s785.t.eloqua.com/e/f2?elqFormName=townhallregistrations&elqSiteID=785",
           data: formToSubmit,
-          // dataType: "json",
+        // dataType: "json",
           encode: true,
+          success: function(result){
+            //$('#main-form').hide();
+            location.replace("eventthankyou.html?eid=" + event_id + "&ename=" + event_name);
+          }
         });
-        $('#main-form').hide();
-        location.replace("eventthankyou.html?eid=" + event_id + "&ename=" + event_name);
+        // $('#main-form').hide();
+        // location.replace("eventthankyou.html?eid=" + event_id + "&ename=" + event_name);
         //$('#thanks').show();
       //setTimeout(function () {
       //removePopup();
