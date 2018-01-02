@@ -201,7 +201,11 @@
       return options.fn(this);
     }
     return options.inverse(this);
-  });
+    });
+
+  Handlebars.registerHelper('floatToFixed', function(float) {
+    return float.toFixed(0);
+    });
 
   module.TownHall = TownHall;
 })(window);
